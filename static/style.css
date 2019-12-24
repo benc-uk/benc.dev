@@ -1,0 +1,78 @@
+.logo__cursor {
+  background: rgb(11, 209, 94);
+}
+
+.post-title {
+  color: rgb(11, 209, 94);
+}
+
+.post-cover{
+  margin: auto;
+  width: 100%;
+}
+
+.button {
+  color: rgba(11, 209, 94, 0.7) !important;
+  background-color: rgba(11, 209, 94, 0.1) !important;
+  padding: 0.5rem !important;
+}
+
+.button:hover {
+  color: rgb(43, 245, 127) !important;
+  background-color: rgba(11, 209, 94, 0.2) !important;
+}
+
+/* ============================================================= */
+
+.home {
+  text-align: center; 
+}
+
+.social {
+  font-size: 2rem
+}
+
+.myicons {
+  padding: 1rem;
+}
+
+.myicons i {
+  font-size: 3rem;
+  color: rgb(11, 209, 94);
+  padding: 1rem;
+
+}
+
+.myicons div {
+  cursor: pointer;
+  display: inline-block;
+  width: 11rem;
+  text-align: center;
+}
+
+.myicons div :hover, .myicons div:hover{
+  color: rgba(11, 209, 94, 0.7);
+}
+
+
+.myicons div:hover::after {
+  content: " ";
+  background: rgb(11, 209, 94);
+  display: inline-block;
+  width: 10px;
+  height: 1rem;
+  position: relative;
+  top:3px;
+  border-radius: 1px;
+  animation: cursor 1s infinite;
+}
+
+.btn {
+  display: inline-block;
+  color: rgba(11, 209, 94, 0.7);
+  background-color: rgba(11, 209, 94, 0.1);
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  font-weight: 800;
+}

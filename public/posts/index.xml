@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Hello Friend</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Loaded</title>
+      <link>/posts/getting-loaded/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/getting-loaded/</guid>
+      <description>Load Testing. Not the coolest of subjects these days, you could argue, but one close to my heart. Back in 2004 I joined a software company called Mercury, at the time well know for a load testing product called LoadRunner.
+For a while my career was very focused on measuring &amp;amp; reporting application performance in various ways. Fifteen years later and the whole industry has changed and evolved, load testing has slipped from the limelight; however people still obviously care about the performance of their web apps, so it has never gone away.</description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>/posts/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/test/</guid>
+      <description>HELLO</description>
+    </item>
+    
+  </channel>
+</rss>

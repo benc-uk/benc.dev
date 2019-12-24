@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pulse Code</title>
+    <link>/</link>
+    <description>Recent content on Pulse Code</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Loaded</title>
+      <link>/blog/getting-loaded/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/getting-loaded/</guid>
+      <description>Load Testing. Not the coolest of subjects these days, you could argue, but one close to my heart. Back in 2004 I joined a software company called Mercury, at the time well know for a load testing product called LoadRunner.
+For a while my career was very focused on measuring &amp;amp; reporting application performance in various ways. Fifteen years later and the whole industry has changed and evolved, load testing has slipped from the limelight; however people still obviously care about the performance of their web apps, so it has never gone away.</description>
+    </item>
+    
+    <item>
+      <title>Integrating with Azure Search</title>
+      <link>/blog/azure-search/</link>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/azure-search/</guid>
+      <description>I currently help maintain a site called Azure Citadel, which is host to lots of techie articles, guides, labs and things related to Azure
+Azure Citadel is in part is a big reason why this blog has been dead for 12 months, as the majority of my technical writing ended up there rather than as blog posts. Sorry!
+We recently did a complete overhaul of the Azure Citadel site and part of this was to improve the search solution we had.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>My name is Ben Coleman, and I&#39;m an application developer and all round technology geek.
+I’ve worked in IT for over 20 years in a wide number of roles and technical domains from mainframes to cloud and DevOps. I am currently employed at Microsoft as a Cloud Solution Architect where I help Microsoft partners build &amp;amp; develop solutions on Azure.
+This blog is mainly focused on various app development topics that include cloud, containers, open-source, DevOps, web apps, CI/CD, etc.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -36,6 +36,7 @@
   max-height: 250px;
   object-fit: cover;
 }
+
 /* ============================================================= */
 
 .home {
@@ -114,9 +115,10 @@
 }
 @media screen and (max-width: 684px) {
   .card {
-    flex: 0 0 11rem;
-    font-size: 90%;
+    flex: 0 0 10rem;
+    font-size: 80%;
     padding: 0.1rem;
+    padding-top: 0.5rem;
   }
 }
 

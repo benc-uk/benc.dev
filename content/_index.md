@@ -4,7 +4,7 @@
   <h1>Pulse Code</h1>
 
   <p>
-    Ben Coleman - blog / homepage / projects.
+    Ben Coleman - blog / homepage / projects
   </p>
 
   <div class="myicons">

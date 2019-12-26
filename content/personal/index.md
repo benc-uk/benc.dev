@@ -9,14 +9,14 @@ title: Personal
 {{< card 
     title="Soundcloud" 
     icon="fab fa-soundcloud" 
-    text="Electronic music" 
+    text="Electronic music production" 
     href="https://soundcloud.com/joyrexj9"
 >}}
 
 {{< card 
     title="Tiny Brushes" 
     icon="fal fa-paint-brush" 
-    text="Painting" 
+    text="Painted miniatures for boardgames and wargames" 
     href="http://minis.benco.io/" 
 >}}
 

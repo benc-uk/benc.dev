@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Terminal &amp; WSL Guide :: Pulse Code — Ben Coleman</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="I&#39;ve found using Windows Subsystem For Linux (WSL) in the last two years has transformed how I use my Windows machine for development and general tech &amp;amp; cloud work. The new Terminal has further cemented this new reliance on the command line.
+Seems like I&#39;m not alone, lots of people seem very interested in the new Windows Terminal and also how to use it with WSL. I&#39;ve just been though the process of a fresh setup of the new Terminal &amp;amp; WSL from scratch, so I figured it was a good time to write up how I set it up and use it.
+I&#39;ve already written about WSL v2 in a previous post, and as it&#39;s still a bit experimental it&#39;s probably worth ignoring for now. With that in mind everything I&#39;ll run through will assume you&#39;re setting up &amp;amp; using WSL v1 just to keep it simple (for now). I&#39;m going to keep thing pretty to the point and factual as much a possible.
+"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/blog/terminal-wsl/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Terminal &amp; WSL Guide"/>
+<meta name="twitter:description" content="I&#39;ve found using Windows Subsystem For Linux (WSL) in the last two years has transformed how I use my Windows machine for development and general tech &amp; cloud work. The new Terminal has further cemented this new reliance on the command line. In this post I cover how I use both"/>
+
+
+
+<meta property="og:title" content="Terminal &amp; WSL Guide" />
+<meta property="og:description" content="I&#39;ve found using Windows Subsystem For Linux (WSL) in the last two years has transformed how I use my Windows machine for development and general tech &amp; cloud work. The new Terminal has further cemented this new reliance on the command line. In this post I cover how I use both" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/terminal-wsl/" />
+<meta property="article:published_time" content="2019-08-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-08T00:00:00+00:00" /><meta property="og:site_name" content="Pulse Code" />
+
+
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/light.css" integrity="sha384-i+ivMdAc0+wLEnd+UdXLpYGNTbyn/0Rjz7EqmkqEOkfat5/2T+S63wn3WDk6h4Yh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/fontawesome.css" integrity="sha384-CtsKDnRWWHDhjRZ5qgpCFCGpib2FU2SChFu0xRt81grgvXq1P+lbpROQoBLxlU4o" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/solid.css" integrity="sha384-U9f9KTMQ1TBvUUFLpp6FgAy1M59lrF3q3rYTHPRVtT8OzY3xyyFUzKevJFYHEbhq" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/brands.css" integrity="sha384-z3CBOpMFSI4D+GXPvBsSW5vXhm4MEzWuC/CycHv+vsuzuztOzPpomZimFLeWNOgk" crossorigin="anonymous">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">pulse code</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/blog">Blog</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/tags">Blog Tags</a></li>
+              
+            
+              
+                <li><a href="/personal">Personal</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/blog">Blog</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/tags">Blog Tags</a></li>
+      
+    
+      
+        <li><a href="/personal">Personal</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/blog/terminal-wsl/">Terminal &amp; WSL Guide</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-08-08
+        </span>
+      
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/linux/">linux</a>&nbsp;
+        
+          #<a href="/tags/terminal/">terminal</a>&nbsp;
+        
+          #<a href="/tags/bash/">bash</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      <p>I've found using Windows Subsystem For Linux (WSL) in the last two years has transformed how I use my Windows machine for development and general tech &amp; cloud work. The new Terminal has further cemented this new reliance on the command line.</p>
+<p>Seems like I'm not alone, lots of people seem very interested in the new <a href="https://github.com/microsoft/terminal">Windows Terminal</a> and also how to use it with WSL. I've just been though the process of a fresh setup of the new Terminal &amp; WSL from scratch, so I figured it was a good time to write up how I set it up and use it.</p>
+<p>I've already written about WSL v2 in a previous post, and as it's still a bit experimental it's probably worth ignoring for now. With that in mind everything I'll run through will assume you're setting up &amp; using WSL v1 just to keep it simple (for now). I'm going to keep thing pretty to the point and factual as much a possible.</p>
+<h1 id="install">Install</h1>
+<p>It's best to install WSL first that way the Terminal will pick it up and create a profile for it.</p>
+<h2 id="windows-subsystem-for-linux-wsl">Windows Subsystem For Linux (WSL)</h2>
+<p>WSL has been available as part of Windows 10 for a while now, and is installed via the Microsoft Store. There's a range of Linux distros to pick from I personally use Ubuntu, but use what ever flavour you like, and if you're new to this Linux business, Ubuntu is a good choice.</p>
+<p><a href="https://www.microsoft.com/en-gb/search/shop/apps?q=WSL">Browse WSL distros on the Store</a></p>
+<p>You'll need to enable &lsquo;Windows Subsystem for Linux&rsquo; feature in the &lsquo;Windows Features&rsquo; control panel before it will install. You can either do this manually when prompted or use PowerShell as <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">described in the docs</a>. <em>Note. This will require a reboot.</em></p>
+<p>From here I'll assume you've installed and initialized WSL, i.e. logged in &amp; set it up with a new user account. If you need help <a href="https://docs.microsoft.com/en-us/windows/wsl/initialize-distro">the docs also have you covered</a>. The first time you access it you don't need to use the new terminal, a shortcut will be put in the start menu which will access WSL using the legacy (conhost) terminal that has been in Windows forever</p>
+<h2 id="windows-terminal">Windows Terminal</h2>
+<p>The Windows Terminal is also  now available on the Windows Store, it's still in &ldquo;early preview&rdquo; but seems fairly stable.<br>
+This requires you to be on Windows 10 update 1903, but nothing else special.</p>
+<p><a href="https://www.microsoft.com/en-gb/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab">Microsoft Store - Windows Terminal</a></p>
+<h1 id="configuring-the-terminal">Configuring the Terminal</h1>
+<p>The Terminal should detect at first start what shells are available and set up profiles for them, namely: WSL, Azure Cloud Shell, PowerShell Core, and for those living in the past - CMD and classic PowerShell.</p>
+<p>These are mostly sensible defaults (even if the font sizes are a bit tiny) however I'll dip into how to personalize things and some of the changes I've made in my setup.</p>
+<p>Currently there is no UI for the profiles/settings, it simply opens profiles.json in your default text editor. However this has an advantage that it's easy to share settings. Here's my personal config</p>
+<p><a href="https://github.com/benc-uk/shared/blob/master/terminal/profiles.json">Ben Coleman - profiles.json</a></p>
+<p>Some changes I have made:</p>
+<ul>
+<li>Enabled split panes. This is currently kind of a hidden setting, it's enabled in the software just not available until you manually add the config to map it to a keybinding. Edit your <code>profiles.json</code> and the <strong>keybindings</strong> array, and add <code>splitHorizontal</code> and <code>splitVertical</code>, I mapped these to <code>ctrl+shift+d</code> and <code>ctrl+shift+e</code> but it's a matter of personal preference</li>
+<li>Modified the default microscopic font sizes, see <code>fontSize</code> in each of the profiles</li>
+<li>Configured the background transparency with the <code>useAcrylic</code>, <code>acrylicOpacity</code> and <code>background</code> settings. It takes a bit of fine tuning to get something that looks good</li>
+<li>Added <code>&quot;padding&quot; : &quot;5, 5, 5, 5&quot;</code> to each profile, as I think it looks better</li>
+<li>Placed a logo in the bottom right of my main profiles (WSL/CLoudShell/PowerShell) to help distinguish between them. This is done with a combo of the <code>backgroundImage</code>, <code>backgroundImageOpacity</code>, <code>backgroundImageStretchMode</code> and <code>backgroundImageAlignment</code> settings</li>
+<li>I wasn't 100% happy with the builtin colour schemes, so I copied the &lsquo;Campbell&rsquo; one to &lsquo;Custom&rsquo; and tweaked some of the colours</li>
+</ul>
+<p>If you want to know more check out the <a href="https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md">full docs on the settings schema</a></p>
+<p>Some gotchas I have tripped over:</p>
+<ul>
+<li>The profile icon (the one shown on the tab) will look bad if it's not already sized to 24x24</li>
+<li>If manually setting up a profile for WSL be aware of the -d switch to pick the distro you want, e.g. <code>&quot;commandline&quot; : &quot;wsl.exe -d Ubuntu&quot;</code> this way you can have multiple profiles one for each distro on your system</li>
+<li>Another WSL gotcha is the starting directory setting, which you normally want to be your home directory inside the WSL distro, e.g. <code>&quot;startingDirectory&quot;: &quot;//wsl$/Ubuntu/home/ben&quot;</code> (with forward slashes). If not set correctly the session will start in Windows/System32, not what you want!</li>
+</ul>
+<p><em>Note.</em> If you get really in a pickle you can delete/rename your <code>profile.json</code> (located inside <code>%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\RoamingState\</code>) and Terminal will create a fresh one at next start</p>
+<h1 id="setting-up-zsh">Setting up zsh</h1>
+<p>Zsh is an alternative shell to bash which has <a href="https://github.com/hmml/awesome-zsh">lots of modern features</a>. The ones I really like are automatic cd (just type a directory name), and the context aware history, which means you could type <code>docker bu</code> and hit up arrow to get the last <code>docker build blah</code> command you ran even if it was hundreds of commands ago. Oh and lots of nice support for theming.</p>
+<p>Installing zsh and making it your default shell is pretty simple:</p>
+<pre><code>sudo apt update
+sudo apt install -y zsh
+chsh -s $(which zsh)
+</code></pre><p>After this, close the current shell/session/window and open a new one. Unless you already have a <code>.zshrc</code> file (unlikely) you will be prompted with the &ldquo;Z Shell configuration function for new users&rdquo;, and a number of choices. Which option you choose to take is up to you, but option 2 is good choice if you're unsure</p>
+<p>Now you're really going to want to install <a href="https://github.com/robbyrussell/oh-my-zsh">&lsquo;Oh My Zsh&rsquo;</a> which like a turbo charge for zsh and simple way to start theming and tweaking your shell &amp; prompt to your tastes. Installing and enabling &lsquo;Oh My Zsh&rsquo; is pretty simple, it can be done in one command:</p>
+<pre><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+</code></pre><p>From here I strongly advise you access your WSL via the new Terminal which has unicode support need for &lsquo;Oh My Zsh&rsquo; themes etc, otherwise you're going to have an ugly time with the old classic terminal</p>
+<p>The prompt is pretty boring by default and probably not what you where expecting. The trick is to enable a custom &lsquo;Oh My Zsh&rsquo; theme, you can <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes">check out a list of included themes on the wiki</a>. You enable a theme by editing your .zshrc file e.g. <code>nano ~/.zshrc</code>, you should see a variable <code>ZSH_THEME</code> near the top, which you can point to one of the themes on the wiki. For example &lsquo;agnoster&rsquo; is a nice looking theme, you could enable it with <code>ZSH_THEME=agnoster</code></p>
+<p>Oh no, it looks rubbish? That's because you need some special fonts for it to really work. If we're going to all that trouble let's really up our game and install new theme too.</p>
+<h2 id="powerlevel9k-and-powerline-fonts">Powerlevel9k and Powerline Fonts</h2>
+<p>I use <a href="https://github.com/Powerlevel9k/powerlevel9k">Powerlevel9k</a> as my theme it looks great and has a load of options.</p>
+<p>Installing Powerlevel9k is a simple git clone:</p>
+<pre><code>git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+</code></pre><p>Then edit your <code>.zshrc</code> and set <code>ZSH_THEME=&quot;powerlevel9k/powerlevel9k&quot;</code></p>
+<p>OK so it's still looking manky, you can fix that by installing the font(s) we need. There's a number of ways to do this, the one I use is to download a pack of &ldquo;Powerline patched&rdquo; fonts from <a href="https://github.com/powerline/fonts">github.com/powerline/fonts</a> unzip and just install the TTF file you want to use/try. I've stuck with &lsquo;Ubuntu Mono derivative Powerline.ttf&rsquo; as I like the look of the Ubuntu Mono font (P.S. don't worry about the variants like bold and italic)</p>
+<p>Next you'll need to tell Windows Terminal to use the font by changing the <code>fontFace</code> setting your profiles.json, e.g. <code>&quot;fontFace&quot; : &quot;Ubuntu Mono derivative Powerline&quot;</code>. If everything has gone to plan, you should finally have a swish looking zsh prompt.</p>
+<p>It's worth mentioning that Powerlevel9k has a <a href="https://github.com/Powerlevel9k/powerlevel9k/wiki/Stylizing-Your-Prompt">tonne of options</a>. This is where you can get really creative. Below is my personal Powerlevel9k configuration (in <code>.zshrc</code> of course) and yes I use emoji/unicode as icons, the new Terminal displays them just fine 😍</p>
+<pre><code>POWERLEVEL9K_HOME_ICON=🏠
+POWERLEVEL9K_HOME_SUB_ICON=📁
+POWERLEVEL9K_FOLDER_ICON=🔨
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON=😺
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_folders
+POWERLEVEL9K_CONTEXT_TEMPLATE=&quot;%n&quot;
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=&quot;&quot;
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=&quot; $ &quot;
+</code></pre><h1 id="my-personal-ubuntulinux-config">My personal Ubuntu/Linux config</h1>
+<p>Lastly to wrap up I thought I'd cover a little of my personal WSL setup and config.</p>
+<p>I had tried to go down the &ldquo;dotfiles stored in git&rdquo; route which is popular. Personally found it fiddly, complex and overkill when all I wanted was a way to back-up my config. So I've settled on a way of working that I'm happy with</p>
+<h3 id="back-up--setup-scripts">Back up &amp; Setup Scripts</h3>
+<p>As I've come to rely on WSL more &amp; more, I realized losing my config and files would be pretty disastrous. To this end I've setup a couple of things:</p>
+<ul>
+<li><strong>Backup.</strong> Since Windows 10 1903 you've been able to access the WSL filesystem from Windows via the <code>\\wsl$</code> path. With this in place, I created a backup script that runs from Windows (written in PowerShell) and copies my critical dotfiles and other directories over to my OneDrive folder. It's all a little crude but has worked for me so far. The script is scheduled in Windows Task Scheduler</li>
+<li><strong>Setup.</strong> To make re-installation of my system as painless as possible, I wanted a way to easily reinstall all the tools, SDKs, and utilities that I use. For this I create a small setup script for each one, and copy and paste whatever install commands I run. More often or not this might be a simple <code>sudo apt install foo</code> but having the script serves as a useful reminder what I've installed. I keep all scripts in setup directory and keep this under git source control linked to GitHub. This has the side benefit I can share these scripts with others</li>
+</ul>
+<h3 id="logon-banner">Logon banner</h3>
+<p>I've had questions about my logon banner, it's fairly &ldquo;fabulous&rdquo; and a probably somewhat OTT but I've grown rather attached to it :)
+
+  <img src="banner.png"  class="left"  />
+
+</p>
+<p>The silly colourful text is done with with a command bizarrely called <code>toilet</code>. The rest of it is just <code>echo</code> commands (with the <strong>-e</strong> switch) at the end of my <code>.zshrc</code>, the colours are embedded <a href="https://misc.flogisoft.com/bash/tip_colors_and_formatting">ANSI escape sequences</a> and the icons are emoji simply copy and pasted directly in the file, e.g.</p>
+<pre><code>echo -e &quot;\e[38;5;82mUbuntu 18.04 🍺&quot;
+</code></pre><h1 id="conclusion">Conclusion</h1>
+<p>I've found WSL to be essential tool for development, and the new Terminal makes it even better. A customized setup might look a little complex but can be run through quickly and easily and will certainly boost productivity.</p>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="/blog/getting-loaded/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Getting Loaded</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="/blog/getting-on-the-go-kart/">
+                  <span class="button__text">Getting On The Go Kart</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">pulse code</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

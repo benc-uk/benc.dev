@@ -6,10 +6,20 @@
     <description>Recent content on Pulse Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Slim Decafe Java</title>
+      <link>/blog/slim-decafe-java/</link>
+      <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/slim-decafe-java/</guid>
+      <description>I&#39;ve built up a small collection of simple containered web apps in a number of languages/frameworks over the last couple of years which I use for my demos. I use these especially with Azure and with Kubernetes, when I need &amp;ldquo;something&amp;rdquo; to deploy and run
+I was in the process of moving these all over to Kubernetes (deployed though Helm and GitHub Actions) when I took a look at them all running side by side.</description>
+    </item>
     
     <item>
       <title>Getting Loaded</title>
@@ -22,6 +32,36 @@ For a while my career was very focused on measuring &amp;amp; reporting applicat
     </item>
     
     <item>
+      <title>Terminal &amp; WSL Guide</title>
+      <link>/blog/terminal-wsl/</link>
+      <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/terminal-wsl/</guid>
+      <description>&lt;p&gt;I&#39;ve found using Windows Subsystem For Linux (WSL) in the last two years has transformed how I use my Windows machine for development and general tech &amp;amp; cloud work. The new Terminal has further cemented this new reliance on the command line.&lt;/p&gt;
+&lt;p&gt;Seems like I&#39;m not alone, lots of people seem very interested in the new &lt;a href=&#34;https://github.com/microsoft/terminal&#34;&gt;Windows Terminal&lt;/a&gt; and also how to use it with WSL. I&#39;ve just been though the process of a fresh setup of the new Terminal &amp;amp; WSL from scratch, so I figured it was a good time to write up how I set it up and use it.&lt;/p&gt;
+&lt;p&gt;I&#39;ve already written about WSL v2 in a previous post, and as it&#39;s still a bit experimental it&#39;s probably worth ignoring for now. With that in mind everything I&#39;ll run through will assume you&#39;re setting up &amp;amp; using WSL v1 just to keep it simple (for now). I&#39;m going to keep thing pretty to the point and factual as much a possible.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Getting On The Go Kart</title>
+      <link>/blog/getting-on-the-go-kart/</link>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/getting-on-the-go-kart/</guid>
+      <description>I&#39;ve dabbled with the Go programming language in the past, and came away with mixed feelings. However I&#39;ve resolved to a have an extra &amp;ldquo;main&amp;rdquo; language to go alongside JavaScript/Node and Python (with C#, Java and PHP being long consigned to the &amp;ldquo;only if I must bucket&amp;rdquo;), so decided to revisit Go and get some real usage of the language under my belt. In addition some recent tooling changes means it has become a lot easier to work with, so it was time for a second look.</description>
+    </item>
+    
+    <item>
+      <title>On The Bleeding Edge with WSL2</title>
+      <link>/blog/wsl2/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/wsl2/</guid>
+      <description>I&#39;ve been a huge fan of WSL (Windows Subsystem for Linux) since it first came to Windows 10. In fact it&#39;s fair to say it has completely transformed how I do local development, run tools and my whole workflow. Naturally I was very interested in the news from Build announcing a new version of WSL, which seems to go by the rather functional (if descriptive) name &amp;ldquo;WSL2&amp;rdquo;
+I&#39;m not going to get too deep into what&#39;s new and exciting with WSL2, as I think the announcement blog covers it nicely</description>
+    </item>
+    
+    <item>
       <title>Squeezing &amp; Sharding Cosmos DB</title>
       <link>/blog/cosmos-sharding/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
@@ -29,6 +69,17 @@ For a while my career was very focused on measuring &amp;amp; reporting applicat
       <guid>/blog/cosmos-sharding/</guid>
       <description>Recently I&#39;ve been exploring the cost optimizations that are possible in Cosmos DB, and tripped over some interesting gotchas and side behaviors that I thought were blog worthy. This is mostly a &amp;lsquo;stream of consciousness&amp;rsquo; of the various problems I bounced off, but I&#39;m sure I&#39;m not the only that will to go through such a journey
 Azure Cosmos DB is a great service with some huge features (global scale, low latency, replication, multi-model, multi API, etc).</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes - Tech Primer</title>
+      <link>/blog/tech-primer-kubernetes/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tech-primer-kubernetes/</guid>
+      <description>I&#39;ve been working on this one for a long time, but I think it&#39;s finally ready for the world.
+Kubernetes is a huge topic and I wanted to condense down my learnings over the past 12 months, into some digestible &amp;amp; re-usable form, so I created another of my tech primers.
+This goes fairly deep and is designed for a technical audience, so is much more than a quick overview of Kubernetes (altogether there is some of that).</description>
     </item>
     
     <item>

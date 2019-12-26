@@ -2,14 +2,16 @@
 <html lang="en">
   <head>
     
-      <title>Tags :: Pulse Code — Ben Coleman</title>
+      <title>Kubernetes - Tech Primer :: Pulse Code — Ben Coleman</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content=""/>
+<meta name="description" content="I&#39;ve been working on this one for a long time, but I think it&#39;s finally ready for the world.
+Kubernetes is a huge topic and I wanted to condense down my learnings over the past 12 months, into some digestible &amp;amp; re-usable form, so I created another of my tech primers.
+This goes fairly deep and is designed for a technical audience, so is much more than a quick overview of Kubernetes (altogether there is some of that)."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
-<link rel="canonical" href="/tags/" />
+<link rel="canonical" href="/blog/tech-primer-kubernetes/" />
 
 
 
@@ -26,20 +28,20 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Kubernetes - Tech Primer"/>
+<meta name="twitter:description" content="I&#39;ve been working on this one for a long time, but I think it&#39;s finally ready for the world. Kubernetes is a huge topic and I wanted to condense down my learnings over the past 12 months, into some digestible &amp; re-usable form, so I created another of my tech primers."/>
 
 
 
-<meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/tags/" />
-<meta property="og:updated_time" content="2019-11-30T00:00:00+00:00" /><meta property="og:site_name" content="Pulse Code" />
+<meta property="og:title" content="Kubernetes - Tech Primer" />
+<meta property="og:description" content="I&#39;ve been working on this one for a long time, but I think it&#39;s finally ready for the world. Kubernetes is a huge topic and I wanted to condense down my learnings over the past 12 months, into some digestible &amp; re-usable form, so I created another of my tech primers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/tech-primer-kubernetes/" />
+<meta property="article:published_time" content="2019-03-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-03-04T00:00:00+00:00" /><meta property="og:site_name" content="Pulse Code" />
 
 
 
-<link rel="alternate" type="application/rss+xml" href="/tags/index.xml" title="Pulse Code" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/light.css" integrity="sha384-i+ivMdAc0+wLEnd+UdXLpYGNTbyn/0Rjz7EqmkqEOkfat5/2T+S63wn3WDk6h4Yh" crossorigin="anonymous">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/fontawesome.css" integrity="sha384-CtsKDnRWWHDhjRZ5qgpCFCGpib2FU2SChFu0xRt81grgvXq1P+lbpROQoBLxlU4o" crossorigin="anonymous">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/solid.css" integrity="sha384-U9f9KTMQ1TBvUUFLpp6FgAy1M59lrF3q3rYTHPRVtT8OzY3xyyFUzKevJFYHEbhq" crossorigin="anonymous">
@@ -154,158 +156,75 @@
 
       <div class="content">
         
+  <div class="post">
+    <h2 class="post-title"><a href="/blog/tech-primer-kubernetes/">Kubernetes - Tech Primer</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-03-04
+        </span>
+      
+      
+      
+    </div>
 
-<div class="terms">
-  <h1>Tags</h1>
-  <ul class="terms__list">
     
+      <span class="post-tags">
+        
+          #<a href="/tags/kubernetes/">kubernetes</a>&nbsp;
+        
+          #<a href="/tags/containers/">containers</a>&nbsp;
+        
+          #<a href="/tags/guide/">guide</a>&nbsp;
+        
+      </span>
     
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/azure/">#azure <span class="terms__term-count">3</span></a>
-        </li>
-      
+
     
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/bash/">#bash <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/containers/">#containers <span class="terms__term-count">1</span></a>
-        </li>
-      
+
+    <div class="post-content">
+      <p>I've been working on this one for a long time, but I think it's finally ready for the world.<br>
+Kubernetes is a huge topic and I wanted to condense down my learnings over the past 12 months, into some digestible &amp; re-usable form, so I created another of my tech primers.</p>
+<p>This goes fairly deep and is designed for a technical audience, so is much more than a quick overview of Kubernetes (altogether there is some of that). At the same time Kubernetes can get hellishly complex in many aspects, so there's a lot I don't cover</p>
+<p>This content can be used for presentations, used in labs &amp; exercises but also given as handout/reading material.</p>
+<a href="https://1drv.ms/p/s!AhEX99ErZbKGhAB4Yzm-VTu9P7ZS" class="btn" target="_blank">
+  View &amp; Download
+   &nbsp; <i class="fas fa-external-link"></i> 
+</a>
+
+    </div>
     
       
-      
-      
-        <li class="terms__term">
-          <a href="/tags/cosmosdb/">#cosmosdb <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/docker/">#docker <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/go/">#go <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/golang/">#golang <span class="terms__term-count">1</span></a>
-        </li>
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="/blog/cosmos-sharding/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Squeezing &amp; Sharding Cosmos DB</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="/blog/azure-search/">
+                  <span class="button__text">Integrating with Azure Search</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
       
     
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/guide/">#guide <span class="terms__term-count">1</span></a>
-        </li>
-      
+
     
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/integration/">#integration <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/java/">#java <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/kubernetes/">#kubernetes <span class="terms__term-count">2</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/linux/">#linux <span class="terms__term-count">3</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/load-testing/">#load-testing <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/microservices/">#microservices <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/nosql/">#nosql <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/search/">#search <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/terminal/">#terminal <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-      
-      
-      
-        <li class="terms__term">
-          <a href="/tags/wsl/">#wsl <span class="terms__term-count">1</span></a>
-        </li>
-      
-    
-  </ul>
-</div>
+
+    </div>
 
       </div>
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go on Pulse Code</title>
+    <link>/tags/go/</link>
+    <description>Recent content in go on Pulse Code</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting On The Go Kart</title>
+      <link>/blog/getting-on-the-go-kart/</link>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/getting-on-the-go-kart/</guid>
+      <description>I&#39;ve dabbled with the Go programming language in the past, and came away with mixed feelings. However I&#39;ve resolved to a have an extra &amp;ldquo;main&amp;rdquo; language to go alongside JavaScript/Node and Python (with C#, Java and PHP being long consigned to the &amp;ldquo;only if I must bucket&amp;rdquo;), so decided to revisit Go and get some real usage of the language under my belt. In addition some recent tooling changes means it has become a lot easier to work with, so it was time for a second look.</description>
+    </item>
+    
+  </channel>
+</rss>

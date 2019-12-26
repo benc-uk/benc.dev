@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Squeezing &amp; Sharding Cosmos DB :: Pulse Code — Ben Coleman</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Recently I&#39;ve been exploring the cost optimizations that are possible in Cosmos DB, and tripped over some interesting gotchas and side behaviors that I thought were blog worthy. This is mostly a &amp;lsquo;stream of consciousness&amp;rsquo; of the various problems I bounced off, but I&#39;m sure I&#39;m not the only that will to go through such a journey
+Azure Cosmos DB is a great service with some huge features (global scale, low latency, replication, multi-model, multi API, etc)."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/blog/cosmos-sharding/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Squeezing &amp; Sharding Cosmos DB"/>
+<meta name="twitter:description" content="Recently I&#39;ve been exploring the cost optimizations that are possible in Cosmos DB, and tripped over some interesting gotchas and side behaviors that I thought were blog worthy. This is mostly a &#39;stream of consciousness&#39; of the various problems I bounced off, but I&#39;m sure I&#39;m not the only that will to go through such a journey"/>
+
+
+
+<meta property="og:title" content="Squeezing &amp; Sharding Cosmos DB" />
+<meta property="og:description" content="Recently I&#39;ve been exploring the cost optimizations that are possible in Cosmos DB, and tripped over some interesting gotchas and side behaviors that I thought were blog worthy. This is mostly a &#39;stream of consciousness&#39; of the various problems I bounced off, but I&#39;m sure I&#39;m not the only that will to go through such a journey" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/cosmos-sharding/" />
+<meta property="article:published_time" content="2019-04-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-04-05T00:00:00+00:00" /><meta property="og:site_name" content="Pulse Code" />
+
+
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/light.css" integrity="sha384-i+ivMdAc0+wLEnd+UdXLpYGNTbyn/0Rjz7EqmkqEOkfat5/2T+S63wn3WDk6h4Yh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/fontawesome.css" integrity="sha384-CtsKDnRWWHDhjRZ5qgpCFCGpib2FU2SChFu0xRt81grgvXq1P+lbpROQoBLxlU4o" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/solid.css" integrity="sha384-U9f9KTMQ1TBvUUFLpp6FgAy1M59lrF3q3rYTHPRVtT8OzY3xyyFUzKevJFYHEbhq" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/brands.css" integrity="sha384-z3CBOpMFSI4D+GXPvBsSW5vXhm4MEzWuC/CycHv+vsuzuztOzPpomZimFLeWNOgk" crossorigin="anonymous">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">pulse code</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/blog">Blog</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/tags">Blog Tags</a></li>
+              
+            
+              
+                <li><a href="/personal">Personal</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/blog">Blog</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/tags">Blog Tags</a></li>
+      
+    
+      
+        <li><a href="/personal">Personal</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/blog/cosmos-sharding/">Squeezing &amp; Sharding Cosmos DB</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-04-05
+        </span>
+      
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/azure/">azure</a>&nbsp;
+        
+          #<a href="/tags/nosql/">nosql</a>&nbsp;
+        
+          #<a href="/tags/cosmosdb/">cosmosdb</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      <p>Recently I've been exploring the cost optimizations that are possible in Cosmos DB, and tripped over some interesting gotchas and side behaviors that I thought were blog worthy. This is mostly a &lsquo;stream of consciousness&rsquo; of the various problems I bounced off, but I'm sure I'm not the only that will to go through such a journey</p>
+<p>Azure Cosmos DB is a great service with some huge features (global scale, low latency, replication, multi-model, multi API, etc). As a PaaS NoSQL offering it's naturally attractive for smaller projects too, however the snag quickly becomes the apparently high price</p>
+<blockquote>
+<p><strong>UPDATE.</strong> Since publishing this post, the Cosmos DB team and product manager reached out to me directly about some of the issues I mentioned. Firstly I wanted to say how amazing it is having the product group engage with bloggers and the community like this! Secondly they are looking to address some of problems I encountered, which is great.</p>
+</blockquote>
+<p>For large scale enterprise/global apps the price is justified, but when working on a demo or prototype it can be more painful to use.</p>
+<p>A couple of concepts and terms before we move on. Cosmos DB is sized &amp; priced on &lsquo;RU/s&rsquo;, which is &ldquo;Request Units per second&rdquo;, I'll steal a quote from the docs to explain this one:</p>
+<blockquote>
+<p>You can think of RU/s as the currency for throughput. RU/s is a rate-based currency, which abstracts the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB</p>
+</blockquote>
+<p>The other thing I'll be talking about is Cosmos DB <em>databases</em> and <em>collections</em>, a <em>database</em> is pretty self explanatory. Under a <em>database</em> you create one or more <em>collections</em>. A <em>collection</em> is basically like a table in a traditional relational database system.</p>
+<p>Originally Cosmos DB only allowed allocating your RU/s at a <em>collection</em> level, with a minimum of 400 RU/s per collection. It wasn't uncommon for projects have hundreds or even thousands of <em>collections</em> in a <em>database</em>, especially for those migrating from MongoDB. As a result the costs could really stack up</p>
+<p>More recently RU/s can now be allocated at the database level, and have Cosmos DB share those RU/s across all collections in it. This comes with some conditions which are <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/set-throughput">covered in the docs</a>, there's also some other &ldquo;side effects&rdquo; which I'll go into.</p>
+<h1 id="sharding-surprise">Sharding Surprise</h1>
+<p>I have a Cosmos DB account (running in MongoDB mode) used for my <a href="https://smilr.benco.io">Smilr project</a>. As I leave it running in one of my personal Azure subscriptions, but only use it for demos I wanted to see how I could squeeze the costs to a minimum and really pinch those pennies</p>
+<p>I only have three collections so rather than pay for 1200 RU/s (three collections at 400 RU/s each) I wanted to try to fit them into a 400 RU/s database. So I created the new database with the magic (and easy to miss) &ldquo;Provision throughput&rdquo; checkbox</p>
+
+  <img src="db.png"  class="left"  />
+
+
+<p>Great I thought, point my app at the new database, import my backed up data - job done. However I started to hit some problems. I was using the MongoDB API and with MongoDB, collections are dynamically created the first time you insert something into them. Basically you never need to run &ldquo;CREATE TABLE blah&rdquo;, they just pop into life the first time your code needs them.</p>
+<p>I fired up the data API part of my Smilr app pointing at the new database and saw a bunch of errors</p>
+<pre><code>MongoError: Shared throughput collection should have a partition key
+</code></pre><p>Sigh.</p>
+<p>After some head scratching, I checked the Azure portal to try to create the collections manually, there I noticed that something called a &ldquo;Shard key&rdquo; was a required property</p>
+
+  <img src="collection.png"  class="left"  />
+
+
+<p>I was already familiar with the concept of &ldquo;sharded&rdquo; or partitioned data storage schemes from playing with Azure Tables, Service Fabric and DocumentDB. This is a <strong>huge topic</strong> which I don't really want to get into here, needless to say it's something you don't get for free, it requires some planning.</p>
+<p>I had to pick some properties in my data which could sensibly divide and split up my data, this was the easy part, I had sensible partition/shard keys I could use. After creating my collections manually in the portal (rather than letting my code auto create them) and setting the shard key properties I had picked. Bingo! No more errors when I started my data API, time to import my data backups&hellip;</p>
+<h1 id="i-got-the-no-rus-blues">I Got The No RUs Blues</h1>
+<p>My existing data was <em>tiny</em> (less than 600 documents in all) but I didn't want to lose it. I used <code>mongoexport</code> to backup my data, so naturally I used <code>mongoimport</code> to reimport it. I kicked off the command and was confronted with a wall of errors :( the main one I spotted was</p>
+<pre><code>Message: {&quot;Errors&quot;:[&quot;Request rate is large&quot;]
+</code></pre><p>Accompanied with a HTTP 429 error - I was being throttled and rate limited. Well it turns out that 400 RU/s isn't a lot, 400 operations per section to be precise. The <code>mongoimport</code> was busting this limit with ease.</p>
+<p>Sigh.</p>
+<p>Simple solution - I scaled up my throughput on my database to 5000 RU/s (that was a guess) and re-run. The import sailed through no problem, after this I scaled it back down to 400 RU/s</p>
+<h1 id="shards-of-crud">Shards of CRUD</h1>
+<p>Now I had my database running at 400 RU/s with three collections inside it and all my data. Mission accomplished? So I thought&hellip;</p>
+<p>Initial testing everything looked good, until I came to do an update or delete, where I got a strange error</p>
+<pre><code>query in command must target a single shard key
+</code></pre><p>This was coming from my data access wrapper where I do my CRUD database operations against Mongo. Turns out that certain operations, namely update and delete require not only the id of the document, but <em>also</em> the shard key that I had picked.</p>
+<p>Sigh.</p>
+<p>It was a case of adding my key field and value (in this case it was a &lsquo;type&rsquo; property I used to categorize my entries) to the Mongo query statement along with the id. A tiny change, <strong>BUT</strong> the snag was my app was a presenting a nice clean REST API. E.g. to delete event 6537 I would make an HTTP call like <code>DELETE /api/events/6537</code> I didn't also pass the type, and didn't want to clutter up the API with implementation details like that</p>
+<p>The compromise was to add a extra step inside my API route controllers to first fetch the record by the id, grab the type, then pass the id + type field to the lower level Mongo wrapper, where I call the actual delete/update. Again not a huge change but I wasn't anticipating requiring any code changes just to run in a slightly cheaper database!</p>
+<h1 id="azure-functions">Azure Functions</h1>
+<p>One aspect of the Smilr application is a serverless version of the API, using Azure Functions</p>
+<p>As my data API was written in Node.js it wasn't a huge job to port it over and replace my Express API routes with separate functions in a Azure Functions App, along with my data access library</p>
+<p>One additional function I had was triggering off updates to the Mongo / Cosmos collection and running it through Cognitive Services for sentiment analysis. This was done with the <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-cosmos-db-triggered-function">Cosmos trigger binding</a>. If you follow that link you will see the Mongo API isn't actually supported, but I found for triggers it actually works fine, as long as you use strings for your document ids</p>
+<p>The trigger binding wants to create a collection inside your Cosmos DB database called &lsquo;leases&rsquo; so it can keep track of which documents it processes.</p>
+<blockquote>
+<p><strong>UPDATE.</strong> When originally wrote this post I discussed an issue with the creations of the leases collection in the sharded Cosmos database which was a show stopper. I have subsequently resolved this, so I'll cover what I did wrong!</p>
+</blockquote>
+<p>I found that the leases collection wasn't being created, in order to fix this I changed two things.</p>
+<ul>
+<li>Firstly updated the version of the Cosmos DB extension in my Functions app to 3.0.3 this version supports sharding. I edited the <strong>extensions.csproj</strong> file and changed the PackageReference as follows <code>&lt;PackageReference Include=&quot;Microsoft.Azure.WebJobs.Extensions.CosmosDB&quot; Version=&quot;3.0.3&quot; /&gt;</code></li>
+<li>I spotted I had <code>&quot;leasesCollectionThroughput&quot;: &quot;400&quot;</code> in my <strong>function.json</strong> file, this isn't a compatible setting as my RU/s are set at the database level, not the collection.</li>
+</ul>
+<p>After these two changes, I found everything worked! And any documents/records created in my collections triggered my function as I expected</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>I have a 400 RU/s database with my three collections nestled inside it, which was the goal I set out to achieve. I have managed to get my Cosmos DB costs down to a bare minimum. I will add, this size/scale of database I wouldn't recommend for anything other than testing or demos, it is <em>very</em> low throughput but that's always going to be the trade off</p>
+<p>In this exercise learned a fair bit about Cosmos DB and MonogDB, plus the use of sharding in collections along the way, found a few bugs in my code, oh and decided to write a blog post about my adventure :)</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="/blog/getting-loaded/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Getting Loaded</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="/blog/azure-search/">
+                  <span class="button__text">Integrating with Azure Search</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">pulse code</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -33,6 +33,21 @@
   </url>
   
   <url>
+    <loc>/tags/cosmosdb/</loc>
+    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/nosql/</loc>
+    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/cosmos-sharding/</loc>
+    <lastmod>2019-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/azure-search/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
   </url>

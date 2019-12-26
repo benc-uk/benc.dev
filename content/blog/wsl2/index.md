@@ -1,0 +1,103 @@
+---
+title: On The Bleeding Edge with WSL2
+date: 2019-06-16
+tags: [linux, wsl, docker]
+description: I've been a huge fan of WSL (Windows Subsystem for Linux) since it first came to Windows 10. In fact it's fair to say it has completely transformed how I do local development, run tools and my whole workflow. Naturally I was very interested in the news from Build announcing a new version of WSL, which seems to go by the rather functional (if descriptive) name "WSL2"
+---
+I've been a huge fan of WSL (Windows Subsystem for Linux) since it first came to Windows 10. In fact it's fair to say it has completely transformed how I do local development, run tools and my whole workflow. Naturally I was very interested in the news from Build announcing a new version of WSL, which seems to go by the rather functional (if descriptive) name "WSL2"
+
+I'm not going to get too deep into what's new and exciting with WSL2, as I think the [announcement blog](https://devblogs.microsoft.com/commandline/announcing-wsl-2/) covers it nicely
+
+So... I've taken the plunge and I'm trying it out, it's been a bumpy ride so I thought I'd write some of my adventure up here. This is going to be one of those "point in time" posts which hopefully becomes obsolete or unnecessary as WSL2 evolves, becomes GA and stable.
+
+# Pre-Requisites
+For now WSL2 is only [available as part of Windows Insiders and build 18917](https://devblogs.microsoft.com/commandline/wsl-2-is-now-available-in-windows-insiders/). This was probably my first major point of trepidation, you need to join "Fast Ring" which is fairly bleeding edge. So far I've been ok, but frankly it makes me a little nervous and I'll be glad when it enters "Slow Ring" or preferably mainstream Windows 10
+
+First thing you'll notice after updating to build 18917 (or above) is ... very little has changed! 
+Your existing installed WSL distro(s) will still be in v1 mode. What has changed is the `wsl.exe` command, and by running `wsl --set-version <distro> <version>` you can now upgrade/switch them to WSL2 mode
+
+# Switching to WSL2
+**GOTCHA #1:** Right now running `--set-version` to [upgrade to WSL2 fails in a lot of cases](https://github.com/microsoft/WSL/issues/4102). It didn't work for my main Ubuntu instance, and hasn't worked for several colleagues. There's something in the filesystem tripping it up, but hopefully there's a fix coming soon
+
+My solution - I installed a second Ubuntu distro from the store. For reasons I don't know "Ubuntu" and "Ubuntu-18.04" are separate installs & entries on the store but both install Ubuntu 18.04.2 in WSL.  
+This let me have my old "Ubuntu-18.04" WSL at v1 (because I couldn't upgrade) and alongside "Ubuntu" which I switched to v2 without hitch. 
+
+So yes, you were probably wondering - you can have WSL1 and WSL2 side by side
+
+
+# Initial Impressions
+**It starts up *fast***. I was nervous when they said WSL2 was a VM now, because virtual machines are complete rubbish. But somehow this starts up in 1 or 2 seconds, it's amazing, no idea how they've done this.
+
+
+# Filesystem
+The guidance now is to **have all your files as part of the root WSL filesystem** rather than "cross access" via `/mnt/c` which was how I worked in WSL1 previously (with some symlinks). In WSL2 keeping under root gives you native filesystem performance, and I certainly noticed the difference. NPM installs took half the time over WSL1 (I timed it!), git operations were much quicker, installing packages with apt was hugely snappier. Overall it really flies...
+
+I opted to manually move all my config, installed packages, code and settings over from my WLS1 to WSL2 distros. This was just a lot of admin & chore work really - and something I would rather not needed to do, but I could live it. In short, it's not that exciting to discuss here
+
+What made some of this easier was the new way to access your WSL filesystems from Windows. Previously this was 100% absolutely not permitted, but the 1903 Windows update made this possible 
+
+**This is done via the special `\\wsl$\` UNC path**. From here you can access any and all your distros, and even copy files between them. 
+
+> Note 1. Linux file permissions might not be preserved but the convenience outweighs that.
+
+> Note 2. You don't need to be on Windows Insiders, just 1903 or on WSL2 to use this new feature
+
+{{< image src="explorer.png" >}}
+
+# Networking
+**UPDATE** Since Insiders build 18975, the localhost issues have been resolved, so you are free to use localhost exactly as with WSL v1
+
+**GOTCHA #2:** Currently you can't access services running inside WSL2 via localhost. Say you fired up your Node.js app, it listens on port 3000, from Windows you normally hit http://localhost:3000 to access it. This worked on WSL1 but not WSL2. 
+
+The workaround is to get the IP address of a special bridge that WSL2 is using, within WSL2 this will br interface eth0. You can find the address out with `ip addr|grep eth0` it will be an RFC 1918 address probably something in the `172.18.81.0/16` range. The address will also change; a lot, every reboot and every time you close WSL2 you will likely get a new address. So I created an alias to display it
+```
+alias wsl-ip="ip addr show eth0 | grep \"inet 1\" | awk '{print \$2}' | cut -d/ -f1"
+```
+
+For me this is only major drawback of WSL2, especially as I do a lot of Node & Python web development locally. Apparently it's very high on the list to be resolved so hopefully by the next release it will be a non-issue.
+
+
+# VS Code
+Naturally I'm using the [new VS Code remote extensions](https://code.visualstudio.com/docs/remote/remote-overview) allowing me to work inside WSL. The extension does work with WSL2 however I've noticed one thing.
+
+**GOTCHA #3:** If you launch VS Code from within WSL2 using `code .` which I think a lot of people do, it will not work. This just launches VS Code in local/Windows mode and opens the folder via the `\\wsl$\Ubuntu\blah` path **UPDATE** This is now resolved and works as expected
+
+To start VS Code with WSL2 you need to go via the "Remote-WSL New Window" command on the command pallet (either with Ctrl+Shift+P, or by clicking the small remote icon in the bottom right of VS Code). This starts VS Code in WSL mode in your default distro. This means need to make WSL2 your default with `wsl --set-default`, until [this update to the extension](https://github.com/microsoft/vscode-remote-release/issues/118). From there open your project directory as normal, you can also open them from the recents list, e.g. Ctrl+R
+
+# Docker
+With WSL2 you can finally install Docker fully in your distro, by this I mean the engine/service not just the CLI tools. This is huge! It means I can finally get rid of Docker For Windows 10, which is a pain and really slow. 
+
+I installed Docker with the standard get.docker script
+```
+curl -fsSL https://get.docker.com/ | sh 
+```
+
+There's no service support in WSL (1 or 2) so you will need to start the daemon manually (this is something I've put in an alias)
+```
+sudo /etc/init.d/docker start
+```
+
+> Note: If you previously have set an environmental variable DOCKER_HOST in your rc scripts to access Docker for Windows, you need to remove this and let the tools access /var/run/docker.sock
+
+
+I found having Docker in WSL2 to be really nice and worked without issue, it was great to be working natively with a local Docker engine again, and definitely much, MUCH faster.
+
+**Gotcha #4:** Sometimes I found my containers could not access the external network & internet. Which when you're running apt, npm or pip inside your Dockerfile is a bit of a pain. I can't tell if this is just my system or a wider issue [but others have reported it](https://github.com/MicrosoftDocs/WSL/issues/422). A reboot makes this issue go away, and I think the localhost changes that are coming will hopefully fix this. In the mean time adding `--network host` to your docker commands was a short term fix
+
+# Summary
+So as you can see WSL2 is not without it's issues, however there's nothing show-stopping in there. In fact I'm writing this blog post from VS Code running with WSL2, which is running Jekyll allowing me to preview & run my blog locally. 
+
+It's definitely not for the faint of heart at this stage, I expecting that to change of course as it approaches general release. As it stands I'm happy dealing with the few gotchas for the benefits WSL2 provides.
+
+Pros:
+- Much faster filesystem IO
+- Run side by side with WSL1
+- Access files from Windows with `\\wsl$\` (Not just WSL2)
+- Full Linux compatibility 
+- Running Docker natively
+
+Cons:
+- Lack of localhost support (coming soon!)
+- Switch / upgrade from WSL1 to WSL2 broken (fix coming)
+- VS Code remote support could improve
+  

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Slim Decafe Java :: Pulse Code — Ben Coleman</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="I&#39;ve built up a small collection of simple containered web apps in a number of languages/frameworks over the last couple of years which I use for my demos. I use these especially with Azure and with Kubernetes, when I need &amp;ldquo;something&amp;rdquo; to deploy and run
+I was in the process of moving these all over to Kubernetes (deployed though Helm and GitHub Actions) when I took a look at them all running side by side."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/blog/slim-decafe-java/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Slim Decafe Java"/>
+<meta name="twitter:description" content="I&#39;ve built up a small collection of simple containered web apps in a number of languages/frameworks over the last couple of years which I use for my demos. I use these especially with Azure and with Kubernetes, when I need &#34;something&#34; to deploy and run. I was in the process of moving these all over to Kubernetes (deployed though Helm and GitHub Actions) when I took a look at them all running side by side."/>
+
+
+
+<meta property="og:title" content="Slim Decafe Java" />
+<meta property="og:description" content="I&#39;ve built up a small collection of simple containered web apps in a number of languages/frameworks over the last couple of years which I use for my demos. I use these especially with Azure and with Kubernetes, when I need &#34;something&#34; to deploy and run. I was in the process of moving these all over to Kubernetes (deployed though Helm and GitHub Actions) when I took a look at them all running side by side." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/slim-decafe-java/" />
+<meta property="article:published_time" content="2019-11-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-30T00:00:00+00:00" /><meta property="og:site_name" content="Pulse Code" />
+
+
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/light.css" integrity="sha384-i+ivMdAc0+wLEnd+UdXLpYGNTbyn/0Rjz7EqmkqEOkfat5/2T+S63wn3WDk6h4Yh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/fontawesome.css" integrity="sha384-CtsKDnRWWHDhjRZ5qgpCFCGpib2FU2SChFu0xRt81grgvXq1P+lbpROQoBLxlU4o" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/solid.css" integrity="sha384-U9f9KTMQ1TBvUUFLpp6FgAy1M59lrF3q3rYTHPRVtT8OzY3xyyFUzKevJFYHEbhq" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/brands.css" integrity="sha384-z3CBOpMFSI4D+GXPvBsSW5vXhm4MEzWuC/CycHv+vsuzuztOzPpomZimFLeWNOgk" crossorigin="anonymous">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">pulse code</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/blog">Blog</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/tags">Blog Tags</a></li>
+              
+            
+              
+                <li><a href="/personal">Personal</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/blog">Blog</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/tags">Blog Tags</a></li>
+      
+    
+      
+        <li><a href="/personal">Personal</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/blog/slim-decafe-java/">Slim Decafe Java</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-11-30
+        </span>
+      
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/microservices/">microservices</a>&nbsp;
+        
+          #<a href="/tags/java/">java</a>&nbsp;
+        
+          #<a href="/tags/kubernetes/">kubernetes</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      <p>I've built up a small collection of simple containered web apps in a number of languages/frameworks over the last couple of years which I use for my demos. I use these especially with Azure and with Kubernetes, when I need &ldquo;something&rdquo; to deploy and run</p>
+<p>I was in the process of moving these all over to Kubernetes (deployed though Helm and GitHub Actions) when I took a look at them all running side by side.</p>
+<p>I ran <code>kubectl top pods</code>
+
+  <img src="tweet.png"  class="left"  />
+
+</p>
+<p>The immediate thing that struck me was the huge contrast in memory usage. Each app is different of course, but broadly does the same basic thing (display some system info and resource stats, maybe a simple API for displaying the weather, none of them have any state or DB), they are little more than <em>hello-world</em> with some Bootstrap CSS lipstick</p>
+<p>I tweeted about the large amount of memory Java was using, which led to some interesting responses and discussion. Eventually <a href="https://brunoborges.io/">Bruno Borges</a> jumped in to help. He pointed me at several things, such as the <a href="https://www.graalvm.org/">GraalVM</a>, a framework called <a href="https://quarkus.io/">Quarkus</a> and the possibility of using no framework and just using the base Java APIs.</p>
+<p>I'd been out of the loop on Java for ~10 years, when I left it behind it was pretty overblown (ahem sorry I mean &lsquo;Enterprise Grade&rsquo; 😉), esp. for web type work. Returning to it in 2019 I was looking for lighter &ldquo;modern&rdquo; ways to run Java in a more microservice style (standalone HTTP services, without an app server). When creating my demo app, I looked at two approaches <a href="https://www.dropwizard.io/">Dropwizard</a> and <a href="https://spring.io/projects/spring-boot">Spring Boot</a>, and settled on Spring Boot as it seemed much more popular. The resulting demo app and repo is here <a href="https://github.com/benc-uk/java-demoapp/">github.com/benc-uk/java-demoapp</a></p>
+<p>Bruno extremely kindly provided me with a <a href="https://github.com/brunoborges/simple-web-app">small GitHub repo</a> showing how the base <a href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html">HTTPServer</a> class could be used to create something very lightweight. It also provided Dockerfiles for running as a regular JVM, in the GraalVM as a native executable and also using <code>jlink</code> to reduce the size of runtime with Java modules. The last two I had no experience of, so found having some working code and Dockerfile <strong>extremely</strong> useful</p>
+<h1 id="the-java-container-variants">The Java Container Variants</h1>
+<p>I decided to perform a slightly scientific test, (but I stress this was FAR from being a formal rigorous benchmark) and settled on seven variations of a simple HTTP java app. I'd containerise each and deploy to Kubernetes and look at the memory usage with <code>kubectl top pods</code> again. The app variants were:</p>
+<ul>
+<li>Using HTTPServer, running on OpenJDK 11 JVM under Alpine (called <strong>java-basic-default</strong>)</li>
+<li>Using HTTPServer, running as a GraalVM native binary (called <strong>java-basic-native</strong>)</li>
+<li>Using HTTPServer, running on jlink'ed custom OpenJDK v14 runtime (called <strong>java-basic-jlink</strong>)</li>
+<li>Using Spring Boot, running on OpenJDK 11 JVM under Alpine (called <strong>java-boot-alpine</strong>)</li>
+<li>Using Spring Boot, running on OpenJDK 11 JVM under Debian (called <strong>java-boot-debian</strong>)</li>
+<li>Using Quarkus, running on OpenJDK 11 JVM under Alpine (called <strong>java-quarkus-default</strong>)</li>
+<li>Using Quarkus, running as a GraalVM native binary (called <strong>java-quarkus-native</strong>)</li>
+</ul>
+<p>The first three came directly from Bruno's repo. The second two were my original Spring Boot demo app where I wanted to see if switching to Alpine Linux would make a difference. The last two were created from the <a href="https://code.quarkus.io/">code.quarkus.io</a> bootstrapper, where I picked no options other than the REST client. The native Quarkus image was built using <a href="https://quarkus.io/guides/building-native-image#creating-a-container-with-a-multi-stage-docker-build">this multi-stage Dockerfile</a> which prevented me from needing all the GraalVM stuff installed on my dev machine</p>
+<h1 id="deployment">Deployment</h1>
+<p>All apps were built as containers and pushed to Dockerhub. Deployment in Kubernetes was done using this <a href="https://github.com/benc-uk/helm-charts/tree/master/webapp">generic simple Helm chart</a>, with exactly the same resource requests/limits set on all the pods</p>
+<p>Helm example</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm install java-boot-alpine http://code.benco.io/helm-charts/webapp-1.2.0.tgz <span style="color:#ae81ff">\ </span>
+--set image.repository<span style="color:#f92672">=</span>bencuk/java-boot-alpine <span style="color:#ae81ff">\ </span>
+--set service.type<span style="color:#f92672">=</span>LoadBalancer <span style="color:#ae81ff">\ </span>
+--set service.targetPort<span style="color:#f92672">=</span><span style="color:#ae81ff">8080</span>
+</code></pre></div><h1 id="testing">Testing</h1>
+<p>Once all were deployed, I hit them all with requests using the <a href="https://github.com/rakyll/hey">trusty &lsquo;hey&rsquo; tool</a> each for 120 seconds, hitting either root of the app or a basic route (e.g. <code>/hello</code>)</p>
+<p>Hey example</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hey -z 120s http://52.155.90.133/hello
+</code></pre></div><h1 id="results">Results</h1>
+<p>The results! This is what you were scrolling past everything else I've written in order to see</p>
+
+  <img src="results.png"  class="left"  />
+
+
+<p>This screenshot was taken of <code>kubectl top pods</code> about 60 seconds into the load test.</p>
+<p>First of all looking at the memory, the clear winners are the basic (HTTPServer) pods all with the smallest footprints. The GraalVM native one is particularly impressive at just 28Mi.</p>
+<p>The Spring Boot pods both weight in at around 200Mi ~ 250Mi, the switch to Alpine makes a tiny difference but it's nothing to shout about. It's heavy either way you look at it</p>
+<p>The Quarkus pods shows a big difference between the default (JVM) and native versions, with the native version being almost as good as the HTTPServer option (albeit with a tonne more capability of a framework)</p>
+<p>Looking at CPU usage (which isn't where this all started, but we might as well take a look while we're here). Predictably the HTTPServer apps use the least but lets face it, they are doing practically nothing. Quarkus does OK, particularly in comparison to Spring Boot's heavy usage. Weirdly the native Quarkus app uses a lot more CPU than the JVM one, but I'm not reading too much into that, I made no attempt to look at the optimization choices or parameters when building it.</p>
+<p>Some bonus stats, what about the Docker image sizes? This was never my main concern, as I was focused on runtime memory not disk space. Long as my image is under 200Mb I think it's OK and don't thing it's valuable to really focus on, however once you get into the gigbytes then I'm deeply worried (Yes Windows containers I'm looking at you)</p>
+
+  <img src="images.png"  class="left"  />
+
+
+<p>Well as expected the native images come out on top, especially the basic HTTPServer one, as that used a <code>scratch</code> image as it's base, meaning the entire image contained just a single file, my executable. The jlink one is huge but I think that's due to something wrong with the Dockerfile (which does some creative stuff)</p>
+<h1 id="conclusions">Conclusions</h1>
+<p>Some closing thoughts:</p>
+<ul>
+<li>Spring Boot does seem kinda chunky no matter how I look at it. It's popular for sure, but is it something you'd write a true microservice in? For traditional server side rendered &ldquo;web apps&rdquo; it's probably fine, but often all we need now is a lightweight REST endpoint</li>
+<li>I couldn't see any way to use GraalVM with Spring Boot and convert my app to something native, some googling produced &ldquo;here be dragons&rdquo; type results. I steered clear.</li>
+<li><a href="https://quarkus.io/">Quarkus</a> looks super interesting and pretty much the counter point to Spring Boot as frameworks go. It's light, optimized for cloud native and containers, designed for REST services rather than web. The bootstrap project even came with Dockerfiles, and simple docs for using with GraalVM. It's a framework I need to look into more</li>
+<li>Would you really write an app using HTTPServer? I don't think so. It's fun to play with, but I can't see you creating a real world/production microservice with it. The footprint was tiny, but IMO the tradeoffs are too many. I can't even serve static content such as a JS SPA which I can do with Express or Golang without a second thought</li>
+<li>GraalVM is an interesting development and something new to me. I'll admit the build/bundling process did seem a little arcane so I'd need to spend some more time with it before I was comfortable using it for everything. It definitely adds time to your builds, and needs a lot of compute. When building the Quarkus native image it would hammer the hell out of my CPU and bring my quad core / 16GB RAM dev machine to its knees.</li>
+</ul>
+<h1 id="spring-boot-addendum">Spring Boot Addendum</h1>
+<p>To validate if Spring Boot really was as hungry as I suspected, I ran a <em>completely empty</em> Spring Boot app, one created from the initalizer (start.spring.io) and no code added, no changes at all, other than building the app into a container image. I ran this with no JVM heap limit (the default) and with a 10Mb max heap. The later started but wouldn't accept HTTP requests. When running as pods in Kubernetes they reported around 100Mb and 150Mb of memory usage, confirming my theory that Spring Boot isn't exactly lightweight, bearing in mind there was no actual functioning code/business logic in either of these cases!</p>
+
+  <img src="boot.png"  class="left"  />
+
+
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="/blog/getting-loaded/">
+                  <span class="button__text">Getting Loaded</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">pulse code</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

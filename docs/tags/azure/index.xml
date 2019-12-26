@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>azure on Pulse Code</title>
+    <link>/tags/azure/</link>
+    <description>Recent content in azure on Pulse Code</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Loaded</title>
+      <link>/blog/getting-loaded/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/getting-loaded/</guid>
+      <description>Load Testing. Not the coolest of subjects these days, you could argue, but one close to my heart. Back in 2004 I joined a software company called Mercury, at the time well know for a load testing product called LoadRunner.
+For a while my career was very focused on measuring &amp;amp; reporting application performance in various ways. Fifteen years later and the whole industry has changed and evolved, load testing has slipped from the limelight; however people still obviously care about the performance of their web apps, so it has never gone away.</description>
+    </item>
+    
+    <item>
+      <title>Squeezing &amp; Sharding Cosmos DB</title>
+      <link>/blog/cosmos-sharding/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/cosmos-sharding/</guid>
+      <description>Recently I&#39;ve been exploring the cost optimizations that are possible in Cosmos DB, and tripped over some interesting gotchas and side behaviors that I thought were blog worthy. This is mostly a &amp;lsquo;stream of consciousness&amp;rsquo; of the various problems I bounced off, but I&#39;m sure I&#39;m not the only that will to go through such a journey
+Azure Cosmos DB is a great service with some huge features (global scale, low latency, replication, multi-model, multi API, etc).</description>
+    </item>
+    
+    <item>
+      <title>Integrating with Azure Search</title>
+      <link>/blog/azure-search/</link>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/azure-search/</guid>
+      <description>I currently help maintain a site called Azure Citadel, which is host to lots of techie articles, guides, labs and things related to Azure
+Azure Citadel is in part is a big reason why this blog has been dead for 12 months, as the majority of my technical writing ended up there rather than as blog posts. Sorry!
+We recently did a complete overhaul of the Azure Citadel site and part of this was to improve the search solution we had.</description>
+    </item>
+    
+  </channel>
+</rss>

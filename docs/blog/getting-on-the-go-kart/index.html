@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Getting On The Go Kart :: Pulse Code — Ben Coleman</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="I&#39;ve dabbled with the Go programming language in the past, and came away with mixed feelings. However I&#39;ve resolved to a have an extra &amp;ldquo;main&amp;rdquo; language to go alongside JavaScript/Node and Python (with C#, Java and PHP being long consigned to the &amp;ldquo;only if I must bucket&amp;rdquo;), so decided to revisit Go and get some real usage of the language under my belt. In addition some recent tooling changes means it has become a lot easier to work with, so it was time for a second look."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/blog/getting-on-the-go-kart/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting On The Go Kart"/>
+<meta name="twitter:description" content="I&#39;ve dabbled with the Go programming language in the past, and came away with mixed feelings. However I&#39;ve resolved to a have an extra &#34;main&#34; language to go alongside JavaScript/Node and Python (with C#, Java and PHP being long consigned to the &#34;only if I must bucket&#34;), so decided to revisit Go and get some real usage of the language under my belt. In addition some recent tooling changes means it has become a lot easier to work with, so it was time for a second look."/>
+
+
+
+<meta property="og:title" content="Getting On The Go Kart" />
+<meta property="og:description" content="I&#39;ve dabbled with the Go programming language in the past, and came away with mixed feelings. However I&#39;ve resolved to a have an extra &#34;main&#34; language to go alongside JavaScript/Node and Python (with C#, Java and PHP being long consigned to the &#34;only if I must bucket&#34;), so decided to revisit Go and get some real usage of the language under my belt. In addition some recent tooling changes means it has become a lot easier to work with, so it was time for a second look." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/getting-on-the-go-kart/" />
+<meta property="article:published_time" content="2019-06-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-06-30T00:00:00+00:00" /><meta property="og:site_name" content="Pulse Code" />
+
+
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/light.css" integrity="sha384-i+ivMdAc0+wLEnd+UdXLpYGNTbyn/0Rjz7EqmkqEOkfat5/2T+S63wn3WDk6h4Yh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/fontawesome.css" integrity="sha384-CtsKDnRWWHDhjRZ5qgpCFCGpib2FU2SChFu0xRt81grgvXq1P+lbpROQoBLxlU4o" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/solid.css" integrity="sha384-U9f9KTMQ1TBvUUFLpp6FgAy1M59lrF3q3rYTHPRVtT8OzY3xyyFUzKevJFYHEbhq" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/brands.css" integrity="sha384-z3CBOpMFSI4D+GXPvBsSW5vXhm4MEzWuC/CycHv+vsuzuztOzPpomZimFLeWNOgk" crossorigin="anonymous">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">pulse code</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/blog">Blog</a></li>
+        
+      
+        
+          <li><a href="/projects">Projects</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            Show more
+            <span class="menu__sub-inner-more-trigger-icon"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/tags">Blog Tags</a></li>
+              
+            
+              
+                <li><a href="/personal">Personal</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/blog">Blog</a></li>
+      
+    
+      
+        <li><a href="/projects">Projects</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/tags">Blog Tags</a></li>
+      
+    
+      
+        <li><a href="/personal">Personal</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/blog/getting-on-the-go-kart/">Getting On The Go Kart</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-06-30
+        </span>
+      
+      
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          #<a href="/tags/golang/">golang</a>&nbsp;
+        
+          #<a href="/tags/linux/">linux</a>&nbsp;
+        
+          #<a href="/tags/go/">go</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      <p>I've dabbled with the Go programming language in the past, and came away with mixed feelings. However I've resolved to a have an extra &ldquo;main&rdquo; language to go alongside JavaScript/Node and Python (with C#, Java and PHP being long consigned to the &ldquo;only if I must bucket&rdquo;), so decided to revisit Go and get some real usage of the language under my belt. In addition some recent tooling changes means it has become a lot easier to work with, so it was time for a second look.</p>
+<h1 id="introduction">Introduction</h1>
+<p>In this first part I'm going to focus on the tooling (i.e. compiling your code &amp; package management) and file/project structure. Yes that's the <em>really</em> boring stuff, but it's also the part any newcomer to Go is going to bounce off first. This isn't a normal &ldquo;getting started with Go&rdquo; article, there's plenty of them already all over the internet. I'll be zooming on the use of <em><strong>modules</strong></em>, which I don't see much discussion  about, probably as they are quite new.</p>
+<p>I'll tackle the many quirks of the language itself in a second follow up post. I'll only be talking about versions of Go from 1.11 onwards, for reasons that will become apparent</p>
+<p>Note. I use Linux (WSL v2 and Ubuntu to be precise) for all my development &amp; coding work, I'm sure everything I talk about here still applies to Windows or MacOS, but I can't guarantee it</p>
+<h1 id="notes-on-go">Notes On Go</h1>
+<p>There are some notable aspects to Go I'd like to mention, before we carry on:</p>
+<ul>
+<li>Go compiles to a static executable binary, no DLLs, no JARs, no minified JS bundle. Just a plain old simple exe file. Which is actually quite lovely.</li>
+<li>Which means&hellip; Go has no runtime!</li>
+<li>Go has what the maintainers refer to as an &ldquo;idiomatic&rdquo; approach, which affects the design of the language and also how you write your code (more in part 2)</li>
+<li>Originally Go didn't have any way to manage or install packages. It's been a tortuous journey via tools like <code>dep</code> and the awful vendor directory experiment. Thankfully all that has been resolved, with the introduction of modules&hellip;</li>
+</ul>
+<h1 id="getting-started--avoiding-gopath-hell">Getting Started &amp; Avoiding GOPATH Hell</h1>
+<p><a href="https://golang.org/doc/install">Installing Go is pretty simple</a>, the instructions have you downloading and un-taring it directly into <code>/usr/local</code>. That to me seems quite strange, and I'm sure another path would work, but it appears to be the agreed way, so don't bother changing it. I've created a simple <a href="https://github.com/benc-uk/ubuntu-tools-install/blob/master/golang.sh">helper install script</a></p>
+<p>The Go bin directory you installed (e.g. <code>/usr/local/go/bin</code>) must be added to your system path, which is pretty obvious. However there's also something called the GOPATH. This used to be a major pain in versions prior to Go 1.11, as everything you did including your own projects and code had to be somewhere under this GOPATH location. It was just horrible.</p>
+<p>Version v1.11 introduced modules which for the first time let you &ldquo;work outside the GOPATH&rdquo;, so to keep things simple you can take the defaults and all but ignore the GOPATH. The default location of GOPATH is inside your user directory, e.g. <code>$HOME/go</code> and if you're happy with that (which you should be) you don't have anything else to do, except add one line to your <code>.bashrc</code> or <code>.zshrc</code> file</p>
+<pre><code>PATH=&quot;$HOME/go/bin:/usr/local/go/bin:$PATH&quot;
+</code></pre><p>All things being well, you should be able to run <code>go version</code> and <code>go env</code> successfully. From here you can effectively forget all about <code>$HOME/go</code> and this GOPATH business</p>
+<p>Note. The majority Go tutorials <a href="https://golang.org/doc/code.html">including those on golang.org site</a>, still place everything under the <code>$GOPATH/src</code> directory. <strong>YOU NO LONGER NEED TO DO THIS</strong> and I will explain why</p>
+<h1 id="starting-with-go-modules">Starting With Go Modules</h1>
+<p>Just to avoid ambiguity, I'll introduce and clarify some common terms at this point:</p>
+<ul>
+<li>A Go <em><strong>project</strong></em> is a directory containing Go source &amp; other files, which is usually contained in a repo</li>
+<li>A <em><strong>repo</strong></em>, a git repository, might contain a single Go <em><strong>project</strong></em>, or several, or possibly a mix of Go and non-Go projects.</li>
+<li>A <em><strong>module</strong></em> is a collection of related Go packages that are versioned together as a single unit, as follows</li>
+</ul>
+<p>Go v1.11 introduced something called <a href="https://github.com/golang/go/wiki/Modules#daily-workflow">modules</a>, this meant for the first time your project and source code could be anywhere on your system, it also introduced a sort of package management system to the language.</p>
+<p>To enable this feature you currently need to set an environmental variable called <code>GO111MODULE</code>, this is because the feature is considered &ldquo;preliminary&rdquo; but I wouldn't worry about that it will likely be a core feature in Go 1.13 so hopefully we can omit this step in a few months</p>
+<p>Add this line to your <code>.bashrc</code> or <code>.zshrc</code> file</p>
+<pre><code>export GO111MODULE=on
+</code></pre><p><strong>UPDATE</strong> Go 1.13 has been released. If you're using 1.13 or above, you can ignore this, setting <code>GO111MODULE</code> is no longer required.</p>
+<p>From here I assume you've got a directory you want to work from, this is your Go <em><strong>project</strong></em></p>
+<p>You need to initialize your project as a module, using <code>go mod init</code>. If you have no plans to make your code available to others you can call your module anything you like, for example</p>
+<pre><code>go mod init mymodule
+</code></pre><p>If you don't provide a name you will get a baffling error: <code>go: cannot determine module path for source directory</code> which is pretty unhelpful.</p>
+<p>You might be thinking <em>&ldquo;But I'm just writing hello world here, I'm not creating anything like a module&rdquo;</em> just ignore the terminology and create a module for your tiny hello world test app anyhow, you can simply invent a name.</p>
+<p>This <code>init</code> command will result in a <code>go.mod</code> file being created in the root of your project. This file is a little like project.json in Node, or .csproj in .NET Core, or even requirements.txt in Python</p>
+<p><code>go.mod</code> is just a text file, so you can take a look, but trust me it won't be that interesting; at this point it will just be two lines. In my experience I've rarely, if ever had need to edit a <code>go.mod</code> file</p>
+<h2 id="golden-rule-of-modules">Golden Rule of Modules</h2>
+<p>Have only one module (i.e. <code>go.mod</code> file) per <em><strong>project</strong></em> and at the top level. Note, this might not be the top level of your <em><strong>repo</strong></em> if you're working in a repo with a mix of Go and non-Go code.</p>
+<blockquote>
+<p>The go.mod file only appears in the root of the module. <strong>Packages in subdirectories have import paths consisting of the module path plus the path to the subdirectory</strong>. For example, if in a module called &lsquo;example.com/hello&rsquo; we created a subdirectory world, we would not need to (nor want to) run go mod init there. The package would automatically be recognized as part of the example.com/hello module, with import path example.com/hello/world.<br>
+(Taken from <a href="https://blog.golang.org/using-go-modules">https://blog.golang.org/using-go-modules</a>)</p>
+</blockquote>
+<h1 id="code-layout--workflow">Code Layout &amp; Workflow</h1>
+<p>That seemed like a lot of work for a two line file! Well that's because we're stepping through the basics here. I find most of this kind of thing becomes second nature after working with any language or tooling for a while</p>
+<p>With your module in place you should be able to simply run <code>go build</code> and/or <code>go run</code> from your module root directory to build/test your code. I'm not going to cover the basics of the go command line, if you need a guide <a href="https://golang.org/cmd/go/">RTFM</a></p>
+<p>Lets move on to laying out code across multiple files and folders (i.e. beyond the single file helloworld.go example). Which was probably one of my first stumbling points when using modules, and in fact Go in general</p>
+<p>First up, I suggest following <a href="https://github.com/golang-standards/project-layout">the &lsquo;Standard Go Project Layout&rsquo; style guide</a> which has several well adopted conventions for how to layout a project. It's kinda opinionated (that's the point really) and I'm not a big fan of some of the directory names, but it's well adopted and will make your project look a bit more grown up</p>
+<p>Let's dig into a few very basic use cases:</p>
+<h2 id="multiple-files">Multiple Files</h2>
+<p>Splitting your code across multiple files <strong>IN THE SAME PACKAGE</strong> will just work, no need to export/import anything, your functions and even top level variables will be visible.</p>
+<p>If you've come from a Node.js, C# and Java background this will seem quite alien, in those languages things either need to be exported (JS) or placed inside classes &amp; namespaces with public accessability and all that old OO baggage</p>
+<h2 id="package--directory-names">Package &amp; Directory Names</h2>
+<p>The name of your packages and the directory they reside inside do not have to match, but if they don't <strong>YOU WILL MAKE THINGS REALLY CONFUSING</strong></p>
+<p>For example I don't have to place this inside a directory called <code>foo/</code></p>
+<pre><code>package foo
+
+func HelloWorld() {
+}
+</code></pre><p>But if I don't (imagine I put it in a directory called <code>bar/</code>) when I import it I'll need to use the directory name, e.g. <code>import mymodule/bar</code>, when when calling it I would need to use the &lsquo;foo&rsquo; package name, e.g. <code>foo.HelloWorld()</code> It's brainbender you want to avoid, at least when first starting out</p>
+<h2 id="3rd-party-external-libraries">3rd Party External Libraries</h2>
+<p>You can simply add a dependency to an external library as a regular <code>import</code> statements in your code and go ahead &amp; compile, for example if I wanted to use the <a href="http://www.gorillatoolkit.org/pkg/mux">Gorilla mux package</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// This imports an external 3rd party library, which will be fetched automatically 
+</span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/gorilla/mux&#34;</span>
+</code></pre></div><p><strong>THIS IS WHERE THE MAGIC HAPPENS!</strong><br>
+Running <code>go build</code> will result in the external code being fetched from the remote Git repo and compiled for you. The results are cached (inside GOPATH, but I said not to worry about that), and the <code>go.mod</code> file is automatically updated with a require statement for the external library</p>
+<p>The way Go modules handles external imports here is very neat I think, it just works! You don't need to run <code>npm install</code> or <code>dotnet package add</code> or anything like that, just update your code and compile. At some point your going to want to worry about the versions of your dependencies, I won't cover that here, but the <code>go get</code> command and the <code>go.mod</code> file has all of that covered, <a href="https://github.com/golang/go/wiki/Modules">there's plenty of detail in the documentation</a>. A <code>go.sum</code> file will also appear, also don't worry about it.</p>
+<h2 id="using-local-libraries--shared-code">Using Local Libraries / Shared Code</h2>
+<p>This is where I started to really stumble over a few things, mainly due to my expectations on how things had worked with Node.js</p>
+<p>Firstly there are <strong>NO RELATIVE IMPORT PATHS</strong>, don't try to do anything like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// None of these will ever work, don&#39;t even try it
+</span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;../mylib/utils&#34;</span>
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;./foo&#34;</span>
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;../../this/really/wont/work&#34;</span>
+</code></pre></div><p>Always use the module name even when trying to reference a local file/package, for example these will work:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// This imports a local package in the mylib directory, assuming your project is defined in &#39;mymodule&#39;
+</span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;mymodule/mylib&#34;</span>
+<span style="color:#75715e">// Things can be nested of course
+</span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;mymodule/mylib/utils&#34;</span>
+</code></pre></div><p>If you think of the module name as the &ldquo;root&rdquo; level, and you go through the directories from there, <strong>not from where the .go file with the import statement is</strong>. Once I started to think of things this way, I had no further issues</p>
+<h2 id="examples">Examples</h2>
+<p>I've put some simple code examples of the what I've been talking about here on Github to hopefully illustrate the point more clearly<br>
+<a href="https://github.com/benc-uk/blog/tree/master/etc/go-basics">https://github.com/benc-uk/blog/tree/master/etc/go-basics</a></p>
+<h2 id="what-do-i-do-with-these-gomod-and-gosum-files">What Do I Do with These go.mod and go.sum Files?</h2>
+<p>Not much. Don't ever touch <code>go.sum</code> it's basically there to <a href="https://github.com/golang/go/wiki/Modules#is-gosum-a-lock-file-why-does-gosum-include-information-for-module-versions-i-am-no-longer-using">validate checksums of the dependencies your are bringing in</a>. Should you delete the file, it's automatically recreated.</p>
+<p>As for <code>go.mod</code>, I've not seen any need to ever edit it. Should you delete it, you can quickly get back to where you started with a <code>go mod init</code> and a <code>go build</code></p>
+<p>You <strong>SHOULD COMMIT BOTH FILES TO YOUR GIT REPO</strong> so don't be tempted put them in your <code>.gitignore</code> file</p>
+<p>If you want to know more, <a href="https://github.com/golang/go/wiki/Modules#faqs--gomod-and-gosum">the FAQ has you covered</a></p>
+<h1 id="wrap-up">Wrap Up</h1>
+<p>In hindsight this hasn't been the most thrilling blog post! But this low level &amp; tooling detail is generally what gives people either a good or bad first impression of a language and what prevents people from being productive.</p>
+<p>Go modules although new, make life working outside the GOPATH simple and easy. Hopefully will provide a common footing for the language and ecosystem around it to forward. I expect they will be in the new normal for Go developers within the next 6-12 months, just like Node.js developers run <code>npm install</code> without even thinking</p>
+<p>In a follow up post I'll get into some of the other weirdness with Go, namely the language itself :)</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="/blog/terminal-wsl/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Terminal &amp; WSL Guide</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="/blog/wsl2/">
+                  <span class="button__text">On The Bleeding Edge with WSL2</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">pulse code</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

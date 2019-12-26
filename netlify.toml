@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "https://blog.benc.dev"
+  to = "https://benc.dev/blog"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://blog.benco.io"
+  to = "https://benc.dev/blog"
+  status = 301
+  force = true  

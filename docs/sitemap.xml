@@ -3,64 +3,64 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
+    <loc>http://code.benco.io/personalsite/</loc>
     <lastmod>2019-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/azure/</loc>
+    <loc>http://code.benco.io/personalsite/tags/azure/</loc>
     <lastmod>2019-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/</loc>
+    <loc>http://code.benco.io/personalsite/blog/</loc>
     <lastmod>2019-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/getting-loaded/</loc>
+    <loc>http://code.benco.io/personalsite/blog/getting-loaded/</loc>
     <lastmod>2019-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/load-testing/</loc>
+    <loc>http://code.benco.io/personalsite/tags/load-testing/</loc>
     <lastmod>2019-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>http://code.benco.io/personalsite/tags/</loc>
     <lastmod>2019-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/azure-search/</loc>
+    <loc>http://code.benco.io/personalsite/blog/azure-search/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/integration/</loc>
+    <loc>http://code.benco.io/personalsite/tags/integration/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/search/</loc>
+    <loc>http://code.benco.io/personalsite/tags/search/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>http://code.benco.io/personalsite/about/</loc>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>http://code.benco.io/personalsite/categories/</loc>
   </url>
   
   <url>
-    <loc>/personal/</loc>
+    <loc>http://code.benco.io/personalsite/personal/</loc>
   </url>
   
   <url>
-    <loc>/projects/</loc>
+    <loc>http://code.benco.io/personalsite/projects/</loc>
   </url>
   
 </urlset>

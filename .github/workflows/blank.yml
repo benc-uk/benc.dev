@@ -1,0 +1,30 @@
+name: Publish site
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Hugo setup
+      uses: peaceiris/actions-hugo@v2.3.2
+      with:
+        extended: true
+      
+    - name: Run hugo publish
+      run: hugo -d docs 
+      
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Publish site" -a
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

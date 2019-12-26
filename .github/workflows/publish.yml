@@ -3,13 +3,13 @@ name: Publish site
 on: [push]
 
 jobs:
-  build:
+  publish:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Checkout submodules
       shell: bash
       run: |
@@ -29,6 +29,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git add docs/
         git commit -m "Publish site" -a
         
     - name: Push changes

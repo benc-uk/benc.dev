@@ -6,7 +6,7 @@ paginate = 5
 [params]
   contentTypeName = "blog"
   defaultTheme = "dark"
-  showMenuItems = 3
+  showMenuItems = 4
   showReadingTime = false
 
 [taxonomies]

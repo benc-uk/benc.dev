@@ -1,34 +1,29 @@
-{{ define "main" }}
-<main aria-role="main" class="home">
-
-
+---
+---
+{{< html >}}
   <h1>Pulse Code</h1>
 
   <p>
-    Ben Coleman - blog / homepage / projects
+    Ben Coleman - blog / homepage / projects.
   </p>
 
   <div class="myicons">
     <div onclick="location.href='/blog'">
       <i class="fal fa-comments-alt"></i><br/>
-      blog >
+      blog &gt;
     </div>
-
-    <div>
-      <a href="#"><i class="fal fa-laptop-code"></i></a><br/>
-      projects >
+    <div onclick="location.href='/projects'">
+      <i class="fal fa-laptop-code"></i><br/>
+      projects &gt;
     </div>
-
-    <div>
+    <div onclick="location.href='/personal'">
       <a href="#"><i class="fal fa-dice-d20"></i></a><br/>
-      personal >
+      personal &gt;
     </div>
-
     <div onclick="location.href='/about'">
       <a href="#"><i class="fal fa-user-circle"></i></a><br/>
-      about >
+      about &gt;
     </div>
-
   </div>
   
   <hr>
@@ -41,5 +36,4 @@
     &nbsp;
     <a href="https://twitter.com/bencodegeek" target="_blank"><i class="fab fa-twitter"></i></a>
   </div>
-</main>
-{{ end }}
+{{< /html >}}

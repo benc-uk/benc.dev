@@ -4,38 +4,19 @@ theme = "hello-friend"
 paginate = 5
 
 [params]
-  # dir name of your blog content (default is `content/posts`)
   contentTypeName = "blog"
-  # "light" or "dark"
   defaultTheme = "dark"
-  # if you set this to 0, only submenu trigger will be visible
   showMenuItems = 3
-  # Show reading time in minutes for posts
   showReadingTime = false
 
 [languages]
   [languages.en]
     title = "Pulse Code"
     subtitle = "Ben Coleman"
-    keywords = ""
-    copyright = ""
-    menuMore = "Show more"
-    writtenBy = "Written by"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
-    newerPosts = "Newer posts"
-    olderPosts = "Older posts"
-    minuteReadingTime = "min read"
-    dateFormatSingle = "2006-01-02"
-    dateFormatList = "2006-01-02"
 
     [languages.en.params.logo]
       logoText = "pulse code"
       logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
@@ -58,3 +39,8 @@ paginate = 5
         name = "Blog Tags"
         url = "/tags"
         weight = "90"     
+      [[languages.en.menu.main]]
+        identifier = "personal"
+        name = "Personal"
+        url = "/personal"
+        weight = "100"             

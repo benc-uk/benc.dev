@@ -1,9 +1,14 @@
+:root {
+  --accent-color: rgb(11, 209, 94);
+  --accent-color-rgb: 11, 209, 94;
+}
+
 .logo__cursor {
-  background: rgb(11, 209, 94);
+  background: var(--accent-color);
 }
 
 .post-title {
-  color: rgb(11, 209, 94);
+  color: var(--accent-color);
 }
 
 .post-cover{
@@ -12,14 +17,14 @@
 }
 
 .button {
-  color: rgba(11, 209, 94, 0.7) !important;
-  background-color: rgba(11, 209, 94, 0.1) !important;
+  color: rgba(var(--accent-color-rgb), 0.7) !important;
+  background-color: rgba(var(--accent-color-rgb), 0.1) !important;
   padding: 0.5rem !important;
 }
 
 .button:hover {
   color: rgb(43, 245, 127) !important;
-  background-color: rgba(11, 209, 94, 0.2) !important;
+  background-color: rgba(var(--accent-color-rgb), 0.2) !important;
 }
 
 /* ============================================================= */
@@ -38,9 +43,8 @@
 
 .myicons i {
   font-size: 3rem;
-  color: rgb(11, 209, 94);
+  color: var(--accent-color);
   padding: 1rem;
-
 }
 
 .myicons div {
@@ -51,13 +55,12 @@
 }
 
 .myicons div :hover, .myicons div:hover{
-  color: rgba(11, 209, 94, 0.7);
+  color: rgba(var(--accent-color-rgb), 0.7);
 }
-
 
 .myicons div:hover::after {
   content: " ";
-  background: rgb(11, 209, 94);
+  background: var(--accent-color);
   display: inline-block;
   width: 10px;
   height: 1rem;
@@ -69,10 +72,60 @@
 
 .btn {
   display: inline-block;
-  color: rgba(11, 209, 94, 0.7);
-  background-color: rgba(11, 209, 94, 0.1);
+  color: rgba(var(--accent-color-rgb), 0.7);
+  background-color: rgba(var(--accent-color-rgb), 0.1);
   padding: 0.8rem;
   border-radius: 0.3rem;
   text-decoration: none;
   font-weight: 800;
+}
+
+.btn:hover {
+  color: rgba(var(--accent-color-rgb), 1);
+  background-color: rgba(var(--accent-color-rgb), 0.3);
+}
+
+.cardgrid {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  flex: 0 0 13rem;
+  height: 13rem;
+  margin: 0.5rem;
+  padding: 0.4rem;
+  padding-top: 0.8rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  border: 3px solid rgba(var(--accent-color-rgb), 0.3);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+@media screen and (max-width: 684px) {
+  .card {
+    flex: 0 0 11rem;
+    font-size: 90%;
+    padding: 0.1rem;
+  }
+}
+
+.card:hover {
+  box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.45);
+}
+.card i {
+  font-size: 4rem;
+  margin: 0.4rem;
+  color: var(--accent-color);
+}
+.card h3 {
+  margin: 0rem;
+  margin-bottom: 0.2rem;
+}
+.card:hover h3 {
+  color: var(--accent-color);
+}
+.card:hover i {
+  color: rgba(var(--accent-color-rgb), 0.7)
 }

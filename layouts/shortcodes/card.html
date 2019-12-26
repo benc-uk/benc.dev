@@ -1,0 +1,5 @@
+<div class="card" onclick="location.href='{{ .Get "href" | plainify  }}'"> 
+  <h3>{{ .Get "title" }}</h3> 
+  <i class="{{ .Get "icon" }}"></i><br>
+  {{ .Get "text" }}
+</div>

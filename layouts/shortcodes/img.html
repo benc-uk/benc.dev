@@ -1,5 +1,5 @@
 <a href="{{ .Get 0 | safeURL  }}" 
    data-lightbox="{{ if .Get 2 }}{{ .Get 2 }}{{ else }}gallery{{ end }}"
    data-title="{{ .Get 1 }}">
-  <img src="{{ .Get 0 | safeURL  }}" style="margin: 1rem; border-radius: 0.6rem;">
+  <img src="{{ .Get 0 | safeURL  }}" style="margin: 1rem; border-radius: 0.6rem; max-width:100%">
 </a>

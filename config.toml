@@ -1,4 +1,4 @@
-baseurl = "http://code.benco.io/personalsiteooo/"
+baseurl = "http://code.benco.io/personalsite/"
 languageCode = "en-us"
 theme = "hello-friend"
 paginate = 5

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>integration on Pulse Code</title>
-    <link>/tags/integration/</link>
+    <link>http://code.benco.io/personalsite/tags/integration/</link>
     <description>Recent content in integration on Pulse Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/integration/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://code.benco.io/personalsite/tags/integration/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Integrating with Azure Search</title>
-      <link>/blog/azure-search/</link>
+      <link>http://code.benco.io/personalsite/blog/azure-search/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/blog/azure-search/</guid>
+      <guid>http://code.benco.io/personalsite/blog/azure-search/</guid>
       <description>I currently help maintain a site called Azure Citadel, which is host to lots of techie articles, guides, labs and things related to Azure
 Azure Citadel is in part is a big reason why this blog has been dead for 12 months, as the majority of my technical writing ended up there rather than as blog posts. Sorry!
 We recently did a complete overhaul of the Azure Citadel site and part of this was to improve the search solution we had.</description>

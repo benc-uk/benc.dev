@@ -1,3 +1,11 @@
+# Root benco.io redirect
+[[redirects]]
+  from = "https://benco.io"
+  to = "https://benc.dev"
+  status = 301
+  force = true  
+
+# Blog redirects
 [[redirects]]
   from = "https://blog.benc.dev"
   to = "https://benc.dev/blog"

@@ -14,10 +14,10 @@ title: Personal
 >}}
 
 {{< card 
-    title="Tiny Brushes" 
+    title="Painting Blog" 
     icon="fal fa-paint-brush" 
     text="Painted miniatures for boardgames and wargames" 
-    href="http://minis.benco.io/" 
+    href="/minis" 
 >}}
 
 

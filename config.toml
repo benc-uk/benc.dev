@@ -9,6 +9,11 @@ paginate = 5
   showMenuItems = 3
   showReadingTime = false
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  minitag = "minitags"
+
 [languages]
   [languages.en]
     title = "Pulse Code"
@@ -33,14 +38,14 @@ paginate = 5
         identifier = "projects"
         name = "Projects"
         url = "/projects"
-        weight = "20"
+        weight = "20"   
       [[languages.en.menu.main]]
-        identifier = "tags"
-        name = "Blog Tags"
-        url = "/tags"
-        weight = "90"     
+        identifier = "minis"
+        name = "Minis"
+        url = "/minis"
+        weight = "70"
       [[languages.en.menu.main]]
         identifier = "personal"
         name = "Personal"
         url = "/personal"
-        weight = "100"             
+        weight = "90"        

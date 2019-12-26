@@ -16,3 +16,15 @@
   to = "https://benc.dev/blog"
   status = 301
   force = true  
+
+# Minis redirects
+[[redirects]]
+  from = "https://minis.benc.dev"
+  to = "https://benc.dev/minis"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://minis.benco.io"
+  to = "https://benc.dev/minis"
+  status = 301
+  force = true

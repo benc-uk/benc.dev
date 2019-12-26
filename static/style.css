@@ -27,6 +27,15 @@
   background-color: rgba(var(--accent-color-rgb), 0.2) !important;
 }
 
+.copyright {
+  display: none !important;
+  font-size: 70% !important;
+}
+
+.post-cover {
+  max-height: 250px;
+  object-fit: cover;
+}
 /* ============================================================= */
 
 .home {

@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Pulse Code</title>
-    <link>http://code.benco.io/personalsiteooo/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Pulse Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://code.benco.io/personalsiteooo/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>azure</title>
-      <link>http://code.benco.io/personalsiteooo/tags/azure/</link>
+      <link>/tags/azure/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://code.benco.io/personalsiteooo/tags/azure/</guid>
+      <guid>/tags/azure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>load-testing</title>
-      <link>http://code.benco.io/personalsiteooo/tags/load-testing/</link>
+      <link>/tags/load-testing/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://code.benco.io/personalsiteooo/tags/load-testing/</guid>
+      <guid>/tags/load-testing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>integration</title>
-      <link>http://code.benco.io/personalsiteooo/tags/integration/</link>
+      <link>/tags/integration/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://code.benco.io/personalsiteooo/tags/integration/</guid>
+      <guid>/tags/integration/</guid>
       <description></description>
     </item>
     
     <item>
       <title>search</title>
-      <link>http://code.benco.io/personalsiteooo/tags/search/</link>
+      <link>/tags/search/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://code.benco.io/personalsiteooo/tags/search/</guid>
+      <guid>/tags/search/</guid>
       <description></description>
     </item>
     

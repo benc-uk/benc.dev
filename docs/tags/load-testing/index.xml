@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>load-testing on Pulse Code</title>
-    <link>http://code.benco.io/personalsiteooo/tags/load-testing/</link>
+    <link>/tags/load-testing/</link>
     <description>Recent content in load-testing on Pulse Code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://code.benco.io/personalsiteooo/tags/load-testing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/load-testing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Loaded</title>
-      <link>http://code.benco.io/personalsiteooo/blog/getting-loaded/</link>
+      <link>/blog/getting-loaded/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://code.benco.io/personalsiteooo/blog/getting-loaded/</guid>
+      <guid>/blog/getting-loaded/</guid>
       <description>Load Testing. Not the coolest of subjects these days, you could argue, but one close to my heart. Back in 2004 I joined a software company called Mercury, at the time well know for a load testing product called LoadRunner.
 For a while my career was very focused on measuring &amp;amp; reporting application performance in various ways. Fifteen years later and the whole industry has changed and evolved, load testing has slipped from the limelight; however people still obviously care about the performance of their web apps, so it has never gone away.</description>
     </item>

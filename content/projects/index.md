@@ -66,7 +66,7 @@ title: Projects
     title="Container Apps" 
     icon="fal fa-rocket" 
     text="Demo web apps for running in containers & Azure" 
-    href="https://github.com/benc-uk/nodejs-demoapp/wiki/Multi-Language-Demo-Web-Apps"
+    href="https://aka.ms/bc/demoapps"
 >}}
 
 {{< html >}}

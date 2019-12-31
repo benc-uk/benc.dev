@@ -2,9 +2,11 @@
 title: Slim Decafe Java
 date: 2019-11-30
 tags: [microservices, java, kubernetes]
-description: I've built up a small collection of simple containered web apps in a number of languages/frameworks over the last couple of years which I use for my demos. I use these especially with Azure and with Kubernetes, when I need "something" to deploy and run. I was in the process of moving these all over to Kubernetes (deployed though Helm and GitHub Actions) when I took a look at them all running side by side.
+description: I've built up a small collection of simple containerized web apps in a number of languages/frameworks over the last couple of years, which I use for my demos. I use these especially with Azure and with Kubernetes, when I need "something" to deploy and run. I was in the process of moving these all over to Kubernetes (deployed though Helm and GitHub Actions) when I took a look at them all running side by side.
 ---
-I've built up a small collection of simple containered web apps in a number of languages/frameworks over the last couple of years which I use for my demos. I use these especially with Azure and with Kubernetes, when I need "something" to deploy and run
+I've built up a small collection of simple containerized, web apps in a number of languages/frameworks over the last couple of years which I use for my demos. I use these especially with Azure and with Kubernetes, when I need "something" to deploy and run
+
+(FYI - You can find [the set of these apps here](https://aka.ms/bc/demoapps))
 
 I was in the process of moving these all over to Kubernetes (deployed though Helm and GitHub Actions) when I took a look at them all running side by side.
 

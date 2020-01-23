@@ -5,8 +5,7 @@ minitags:
 - 40k
 - necrons
 - citadel
-cover: front1.jpg
-useRelativeCover: true
+cover: https://bcblog.azureedge.net/minis/return-to-40/front1.jpg
 description: " "
 ---
 This feels something of a confession, a shameful act that should only be whispered… but I’ve picked up the latest edition of Warhammer 40,000 and a whole bunch of Necron minis.
@@ -22,6 +21,6 @@ For the bases I experimented with creating my own basing compound/texture paint,
 
 Onwards, only the rest of the army to paint now!
 
-{{< img front1.jpg >}}  
-{{< img front2.jpg >}}  
-{{< img back2.jpg >}} 
+{{< img "https://bcblog.azureedge.net/minis/return-to-40/front1.jpg" >}}  
+{{< img "https://bcblog.azureedge.net/minis/return-to-40/front2.jpg" >}}  
+{{< img "https://bcblog.azureedge.net/minis/return-to-40/back2.jpg" >}} 

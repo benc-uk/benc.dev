@@ -5,8 +5,7 @@ minitags:
 - descent
 - fantasy
 - board-games
-cover: 'i1.png'
-useRelativeCover: true
+cover: https://bcblog.azureedge.net/minis/descent-done/i1.png
 description: " "
 ---
 
@@ -16,8 +15,8 @@ Most of these models were speed painted, doing a minimal job to get them to the 
 
 Now maybe I'll try to get another game in, before they announce 3rd edition in a year or two!
 
-{{< img i1.png >}} 
-{{< img i2.png >}} 
-{{< img i3.png >}} 
-{{< img i4.png >}} 
-{{< img i5.png >}} 
+{{< img "https://bcblog.azureedge.net/minis/descent-done/i1.png" >}} 
+{{< img "https://bcblog.azureedge.net/minis/descent-done/i2.png" >}} 
+{{< img "https://bcblog.azureedge.net/minis/descent-done/i3.png" >}} 
+{{< img "https://bcblog.azureedge.net/minis/descent-done/i4.png" >}} 
+{{< img "https://bcblog.azureedge.net/minis/descent-done/i5.png" >}} 

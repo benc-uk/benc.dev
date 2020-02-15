@@ -6,6 +6,8 @@ minitags:
 - fantasy
 - board-games
 cover: i1.png
+images: 
+- i1.png
 description: " "
 useRelativeCover: true
 ---

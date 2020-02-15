@@ -6,8 +6,9 @@ minitags:
 - kill-team
 - necrons
 - citadel
-cover: https://bcblog.azureedge.net/minis/necron-kill-team/front.jpg
+cover: front.jpg
 description: " "
+useRelativeCover: true
 ---
 I was slowly (very slowly) making progress with my Necrons for Warhammer 40K and had painted up some Necron Wraiths (to be featured in a future post), when Games Workshop announced a new edition of [Warhammer 40K: Kill Team](https://warhammer40000.com/kill-team/). Kill Team is a skirmish variant of its big brother 40K, where small groups of 5~10 models fight on a much smaller board. The game is often played in a campaign with your models having individual names, & skills and level up over time. 
 
@@ -18,8 +19,8 @@ If you're interested in the paints/colours I used, [there is a photo here](paint
 
 I'm more than happy with the resulting look. I might add some [Necron Flayed Ones](https://1d4chan.org/wiki/Flayed_Ones) at some point but otherwise these guys are ready to get out there and start destroying all life in the galaxy
 
-{{< img "https://bcblog.azureedge.net/minis/necron-kill-team/front.jpg" >}}
-{{< img "https://bcblog.azureedge.net/minis/necron-kill-team/top.jpg" >}}
-{{< img "https://bcblog.azureedge.net/minis/necron-kill-team/left.jpg" >}}
-{{< img "https://bcblog.azureedge.net/minis/necron-kill-team/right.jpg" >}}
+{{< img "front.jpg" >}}
+{{< img "top.jpg" >}}
+{{< img "left.jpg" >}}
+{{< img "right.jpg" >}}
 

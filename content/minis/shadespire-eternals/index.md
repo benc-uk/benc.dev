@@ -7,8 +7,9 @@ minitags:
 - shadespire
 - citadel
 - board-games
-cover: https://bcblog.azureedge.net/minis/shadespire-eternals/1.jpg
+cover: 1.jpg
 description: " " 
+useRelativeCover: true
 ---
 The second of the two warbands in the *Shadespire* core box, these are Steelheart’s Champions a group of "Stormcast Eternals". If you don't follow the fluff of *Warhammer: Age of Sigmar* (and I don't blame you, as quite frankly it's bollocks) these are giant, immortal, heavily armoured super warriors that are fiercely loyal to their demi-god leader that created them. Sound familiar? Yeah, they are basically Space Marines, they even **look like Space Marines** for crying out loud.
 
@@ -16,6 +17,6 @@ Ok rant over, I went for the trad colour scheme for Stormcast guys which is a lo
 
 All that remains to actually play a game of *Shadespire*, hope it's good after all this!
 
-{{< img "https://bcblog.azureedge.net/minis/shadespire-eternals/1.jpg" >}}  
-{{< img "https://bcblog.azureedge.net/minis/shadespire-eternals/2.jpg" >}}  
-{{< img "https://bcblog.azureedge.net/minis/shadespire-eternals/6.jpg" >}} 
+{{< img "1.jpg" >}}  
+{{< img "2.jpg" >}}  
+{{< img "6.jpg" >}} 

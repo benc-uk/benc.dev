@@ -5,8 +5,9 @@ minitags:
 - 40k
 - necrons
 - citadel
-cover: https://bcblog.azureedge.net/minis/return-to-40/front1.jpg
+cover: front1.jpg
 description: " "
+useRelativeCover: true
 ---
 This feels something of a confession, a shameful act that should only be whispered… but I’ve picked up the latest edition of Warhammer 40,000 and a whole bunch of Necron minis.
 I’m not really sure what brought this about, as I turned my back on 40K many years ago. I suppose it’s something I’ve always had one eye on, as a casual observer over the years. The 8th edition rules gave me a glimmer of optimism that the game might be fun to play again. That remains to be seen! However I have started painting and that’s really what this blog is about.
@@ -21,6 +22,6 @@ For the bases I experimented with creating my own basing compound/texture paint,
 
 Onwards, only the rest of the army to paint now!
 
-{{< img "https://bcblog.azureedge.net/minis/return-to-40/front1.jpg" >}}  
-{{< img "https://bcblog.azureedge.net/minis/return-to-40/front2.jpg" >}}  
-{{< img "https://bcblog.azureedge.net/minis/return-to-40/back2.jpg" >}} 
+{{< img "front1.jpg" >}}  
+{{< img "front2.jpg" >}}  
+{{< img "back2.jpg" >}} 

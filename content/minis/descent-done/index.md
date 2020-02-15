@@ -5,8 +5,9 @@ minitags:
 - descent
 - fantasy
 - board-games
-cover: https://bcblog.azureedge.net/minis/descent-done/i1.png
+cover: i1.png
 description: " "
+useRelativeCover: true
 ---
 
 It's only taken **FIVE YEARS** (almost to the day) but I've finished painting all the minis from Decent 2nd Edition. OK so there was about a 4&half; year gap between when I did the bulk of the models and when I finished off the remaining few this week. The reasons are too boring to go into, but I set on finishing the last four hero models in an act of completism, triggered by the idea of playing with the Descent: Road To Legend app
@@ -15,8 +16,8 @@ Most of these models were speed painted, doing a minimal job to get them to the 
 
 Now maybe I'll try to get another game in, before they announce 3rd edition in a year or two!
 
-{{< img "https://bcblog.azureedge.net/minis/descent-done/i1.png" >}} 
-{{< img "https://bcblog.azureedge.net/minis/descent-done/i2.png" >}} 
-{{< img "https://bcblog.azureedge.net/minis/descent-done/i3.png" >}} 
-{{< img "https://bcblog.azureedge.net/minis/descent-done/i4.png" >}} 
-{{< img "https://bcblog.azureedge.net/minis/descent-done/i5.png" >}} 
+{{< img "i1.png" >}} 
+{{< img "i2.png" >}} 
+{{< img "i3.png" >}} 
+{{< img "i4.png" >}} 
+{{< img "i5.png" >}} 

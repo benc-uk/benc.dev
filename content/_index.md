@@ -1,4 +1,7 @@
 ---
+images: 
+- "thumb.png"
+description: "Ben Coleman - blog / homepage / projects"
 ---
 {{< html >}}
   <h1>Pulse Code</h1>

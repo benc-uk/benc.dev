@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://benc.dev/"
 languageCode = "en-us"
 theme = "hello-friend"
 paginate = 5
@@ -8,6 +8,9 @@ paginate = 5
   defaultTheme = "dark"
   showMenuItems = 4
   showReadingTime = false
+  description = "Ben Coleman - blog / homepage / projects"
+  title = "Pulse Code"
+  images = ["thumb.png"]
 
 [taxonomies]
   category = "categories"

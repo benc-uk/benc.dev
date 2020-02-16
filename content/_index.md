@@ -2,8 +2,6 @@
 title: Pulse Code
 ---
 {{< html >}}
-  <!-- <h1>Pulse Code</h1> -->
-
   <p>
     Ben Coleman - blog / homepage / projects
   </p>

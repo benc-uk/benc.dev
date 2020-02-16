@@ -9,7 +9,6 @@ paginate = 5
   showMenuItems = 4
   showReadingTime = false
   description = "Ben Coleman - blog / homepage / projects"
-  title = "Pulse Code"
   images = ["thumb.png"]
 
 [taxonomies]

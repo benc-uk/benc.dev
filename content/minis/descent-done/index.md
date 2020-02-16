@@ -5,11 +5,9 @@ minitags:
 - descent
 - fantasy
 - board-games
-cover: i1.png
-images: 
-- i1.png
+cover: "/minis/descent-done/i1.png"
+images: ["/minis/descent-done/i2.png"]
 description: " "
-useRelativeCover: true
 ---
 
 It's only taken **FIVE YEARS** (almost to the day) but I've finished painting all the minis from Decent 2nd Edition. OK so there was about a 4&half; year gap between when I did the bulk of the models and when I finished off the remaining few this week. The reasons are too boring to go into, but I set on finishing the last four hero models in an act of completism, triggered by the idea of playing with the Descent: Road To Legend app

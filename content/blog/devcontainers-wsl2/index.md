@@ -35,9 +35,10 @@ Paste in these contents and save
 ```json
 {
   "tls": false,
-  "hosts": ["tcp://0.0.0.0:2375"]
+  "hosts": ["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"]
 }
 ```
+**Note.** It's important you leave the ability to connect via the socket (`/var/run/docker.sock`), the VS Code Remote containers extension does some strange things, including some pre-checks that launch `/bin/sh -c docker` in non-interactive mode, this won't read any profile scripts, effectively making it impossible to set env variables for. Just trust me on this one, it caught me out big time.  
 
 Stop the daemon if it's running, and restart it.
 
@@ -81,7 +82,7 @@ Run these steps from within WSL2
     "tls": true,
     "tlscert": "/etc/docker/server-cert.pem",
     "tlskey": "/etc/docker/server-key.pem",
-    "hosts": ["tcp://0.0.0.0:2376"]
+    "hosts": ["tcp://0.0.0.0:2376", "unix:///var/run/docker.sock"]
   }
   ```
 - Copy the client certs and key to your WSL user `.docker` directory

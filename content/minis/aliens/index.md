@@ -4,7 +4,7 @@ date: 2021-01-01
 minitags:
   - scifi
   - board-games
-cover: "/minis/aliens/6.png"
+cover: "/minis/aliens/6.jpg"
 ---
 
 Wow it's been a while since I did any painting! And probably even longer since I blogged about it.
@@ -19,8 +19,8 @@ Lastly I did some of the bonus components, the crates, auto-guns and computer te
 
 Well here they are...
 
-{{< img 1.png >}}
-{{< img 2.png >}}
-{{< img 3.png >}}
-{{< img 4.png >}}
-{{< img 6.png >}}
+{{< img 1.jpg >}}
+{{< img 2.jpg >}}
+{{< img 3.jpg >}}
+{{< img 4.jpg >}}
+{{< img 6.jpg >}}

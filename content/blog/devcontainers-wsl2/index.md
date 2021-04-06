@@ -76,6 +76,7 @@ Run these steps from within WSL2
   ```bash
   sudo cp ca.pem server-cert.pem server-key.pem /etc/docker
   ``` 
+  
 - Edit the daemon config file as before, e.g. `sudo nano /etc/docker/daemon.json`, new contents are:
   ```json
   {
@@ -85,17 +86,18 @@ Run these steps from within WSL2
     "hosts": ["tcp://0.0.0.0:2376", "unix:///var/run/docker.sock"]
   }
   ```
-- Copy the client certs and key to your WSL user `.docker` directory
 
+- Copy the client certs and key to your WSL user `.docker` directory
   ```bash
   mkdir -pv ~/.docker
   cp -v {ca,cert,key}.pem ~/.docker
   ```
   Do the same to copy to the Windows side. NOTE. You will need to change the path to match your system/username
-    ```bash
+  ```bash
   mkdir -pv /mnt/c/Users/YOUR_USERNAME/.docker
   cp -v {ca,cert,key}.pem /mnt/c/Users/YOUR_USERNAME/.docker
   ```
+
 - Enable TLS on the Docker client (as before, place in .bashrc/.zhrc or other profile script to make permanent)
   ```bash
   export DOCKER_HOST=tcp://localhost:2376 DOCKER_TLS_VERIFY=1

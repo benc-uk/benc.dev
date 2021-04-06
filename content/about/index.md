@@ -2,7 +2,6 @@
 title: "About"
 ---
 
-
 {{< image src="profile.png" style="border-radius: 8px; margin: 1rem; width:45%; text-align:center; float:right" >}}
 
 Hello! My name is Ben Coleman, and I'm a developer, cloudy tech guy and all round technology geek.
@@ -16,7 +15,7 @@ I live in London with my wife and cats, I spend my time doing stuff like running
 In the unlikely event of you wanting to know a bit more, here's my LinkedIn and GitHub profiles:
 
 {{< html >}}
-<a href="https://github.com/benc-uk"><i class="fab fa-github" style="font-size: 3rem;" target="_blank"></i></a> 
+<a href="https://github.com/benc-uk"><i class="fab fa-github" style="font-size: 3rem;" target="_blank"></i></a>
 &nbsp; &nbsp;
-<a href="https://www.linkedin.com/in/benc-uk"><i class="fab fa-linkedin" style="font-size: 3rem;" target="_blank"></i></a> 
+<a href="https://www.linkedin.com/in/benc-uk"><i class="fab fa-linkedin" style="font-size: 3rem;" target="_blank"></i></a>
 {{< /html >}}

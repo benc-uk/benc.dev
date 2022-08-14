@@ -8,19 +8,19 @@ title: Pulse Code
 
   <div class="myicons">
     <div onclick="location.href='/blog'">
-      <i class="fal fa-comments-alt"></i><br/>
+      <i class="far fa-comments"></i><br/>
       blog &gt;
     </div>
     <div onclick="location.href='/projects'">
-      <i class="fal fa-laptop-code"></i><br/>
+      <i class="fas fa-laptop-code"></i><br/>
       projects &gt;
     </div>
     <div onclick="location.href='/personal'">
-      <a href="#"><i class="fal fa-dice-d20"></i></a><br/>
+      <a href="#"><i class="fas fa-dice-d20"></i></a><br/>
       personal &gt;
     </div>
     <div onclick="location.href='/about'">
-      <a href="#"><i class="fal fa-user-circle"></i></a><br/>
+      <a href="#"><i class="far fa-user-circle"></i></a><br/>
       about &gt;
     </div>
   </div>

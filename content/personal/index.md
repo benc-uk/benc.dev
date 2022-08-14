@@ -15,7 +15,7 @@ title: Personal
 
 {{< card 
     title="Painting Blog" 
-    icon="fal fa-paint-brush" 
+    icon="fas fa-paint-brush" 
     text="Painted miniatures for boardgames and wargames" 
     href="/minis" 
 >}}

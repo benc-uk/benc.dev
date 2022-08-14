@@ -2,8 +2,10 @@
   "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
   "configurations": {
     "benc.dev": {
-      "appLocation": "public",
-      "outputLocation": "."
+      "appLocation": ".",
+      "outputLocation": "public",
+      "appBuildCommand": "hugo",
+      "run": "hugo serve"
     }
   }
 }

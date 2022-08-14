@@ -1,4 +1,4 @@
-baseurl = "https://benc.dev/"
+baseurl = "https://blog.benc.dev/"
 languageCode = "en-us"
 theme = "hello-friend"
 paginate = 5

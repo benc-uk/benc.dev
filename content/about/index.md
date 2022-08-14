@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-{{< image src="./profile.png" style="border-radius: 8px; margin: 1rem; width:45%; text-align:center; float:right" >}}
+{{< image src="/about/profile.png" style="border-radius: 8px; margin: 1rem; width:45%; text-align:center; float:right" >}}
 
 Hello! My name is Ben Coleman, and I'm a developer, cloudy tech guy and all round technology geek.
 

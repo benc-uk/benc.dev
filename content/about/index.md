@@ -6,7 +6,7 @@ title: "About"
 
 Hello! My name is Ben Coleman, and I'm a developer, cloudy tech guy and all round technology geek.
 
-I've rattled around the tech industry for over 25 years doing a lot of different things, I've worked on mainframes, built monitoring systems for telcos, and was around for the birth of cloud. These days I work at Microsoft as an engineering manager helping people develop and build applications in the cloud 
+I've rattled around the tech industry for over 25 years doing a lot of different things, I've worked on mainframes, built monitoring systems for telcos, and was around for the birth of cloud. These days I work at Microsoft as an engineering manager helping people develop and build applications in the cloud
 
 I blog on a range tech topics such as coding/dev, cloud, containers, DevOps, Kubernetes etc. but I can be anything that captures my imagination
 

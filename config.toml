@@ -1,7 +1,8 @@
-baseurl = "https://blog.benc.dev/"
+baseurl = "/"
 languageCode = "en-us"
 theme = "hello-friend"
-paginate = 5
+[pagination]
+pagerSize = 5
 
 [params]
   contentTypeName = "blog"

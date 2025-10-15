@@ -2,6 +2,8 @@
 title: Projects
 ---
 
+A small sample of some of my open source projects. Many more can be found on [GitHub](https://github.com/benc-uk) 
+
 {{< html >}}
  <div class="cardgrid">
 {{< /html >}}
@@ -14,38 +16,31 @@ title: Projects
 >}}
 
 {{< card 
-    title="RayScale" 
+    title="GSOTS-3D" 
     icon="fas fa-draw-polygon" 
-    text="Distributed ray tracer, 3D rendering using containers" 
-    href="http://rayscale.benco.io/" 
+    text="A library for Getting Stuff On The Screen in 3D using WebGL" 
+    href="https://code.benco.io/gsots3d/docs/" 
 >}}
 
 {{< card 
     title="Dapr Store" 
     icon="fas fa-user-tie" 
     text="A microservices reference app for Dapr" 
-    href="https://code.benco.io/dapr-store/"
+    href="https://azure-samples.github.io/dapr-store/"
 >}}
 
 {{< card 
-    title="ARM Viewer" 
-    icon="fas fa-project-diagram" 
-    text="VS Code extension for visualizing Azure ARM templates"
-    href="https://marketplace.visualstudio.com/items?itemName=bencoleman.armview"
+    title="Tomb Viewer" 
+    icon="fas fa-skull" 
+    text="Rendering Tomb Raider levels in TypeScript and WebGL" 
+    href="https://github.com/benc-uk/tomb-viewer"
 >}}
 
 {{< card 
     title="Super Dungeon" 
     icon="fas fa-dungeon" 
     text="Retro dungeon crawl videogame written using Godot engine" 
-    href="https://github.com/benc-uk/super-dungeon-delve"
->}}
-
-{{< card 
-    title="Fractals" 
-    icon="fas fa-superscript" 
-    text="Mandlebrot and Julia fractals rendered in real-time using Go"
-    href="https://code.benco.io/gofract/"
+    href="https://joyrexj9.itch.io/super-dungeon-delve"
 >}}
 
 {{< card 
@@ -56,17 +51,24 @@ title: Projects
 >}}
 
 {{< card 
-    title="Computer Vision" 
-    icon="fas fa-eye" 
-    text="Azure computer vision client app in pure JS/HTML5" 
-    href="https://github.com/benc-uk/face-vision-app"
+    title="Nanomon" 
+    icon="fas fa-chart-line" 
+    text="Lightweight agentless network monitoring system" 
+    href="https://github.com/benc-uk/nanomon"
 >}}
 
 {{< card 
-    title="Container Apps" 
+    title="Pixelmash" 
+    icon="fas fa-icons" 
+    text="Realtime image manipulation & effects with WebGL" 
+    href="https://pixelmash.benco.io/"
+>}}
+
+{{< card 
+    title="GitHub Dispatch" 
     icon="fas fa-rocket" 
-    text="Demo web apps for running in containers & Azure" 
-    href="https://gist.github.com/benc-uk/cb2ac1146b1128137019aec8575521c1"
+    text="A GitHub Actions workflow dispatcher" 
+    href="https://github.com/benc-uk/postman-prometheus"
 >}}
 
 {{< html >}}
